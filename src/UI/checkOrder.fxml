@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.CheckOrderController">
+    <children>
+        <ChoiceBox layoutX="1478.0" layoutY="496.0" prefHeight="40.0" prefWidth="370.0" />
+        <Text layoutX="1488.0" layoutY="526.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Set order status">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Text>
+        <TableView layoutX="104.0" layoutY="495.0" prefHeight="563.0" prefWidth="760.0">
+            <columns>
+                <TableColumn prefWidth="190.0" text="Description" />
+                <TableColumn prefWidth="190.0" text="Item status" />
+                <TableColumn prefWidth="190.0" text="Clothing type" />
+                <TableColumn prefWidth="190.0" text="Item ID" />
+            </columns>
+        </TableView>
+        <Button layoutX="526.0" layoutY="223.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="GO">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Button>
+        <TextField layoutX="104.0" layoutY="223.0" prefHeight="40.0" prefWidth="370.0" promptText="Enter item ID">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </TextField>
+        <Button layoutX="1280.0" mnemonicParsing="false" prefHeight="110.0" prefWidth="640.0" style="-fx-background-color: C4C4C4;" text="Check order">
+            <font>
+                <Font size="40.0" />
+            </font>
+        </Button>
+        <Button layoutX="640.0" mnemonicParsing="false" prefHeight="110.0" prefWidth="640.0" text="Manage client">
+            <font>
+                <Font size="40.0" />
+            </font>
+        </Button>
+        <Button mnemonicParsing="false" prefHeight="110.0" prefWidth="640.0" style="-: ;" text="Create new order">
+            <font>
+                <Font size="40.0" />
+            </font>
+        </Button>
+        <ChoiceBox layoutX="1041.0" layoutY="496.0" prefHeight="40.0" prefWidth="370.0" />
+        <Text layoutX="1051.0" layoutY="526.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Set item status">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Text>
+        <Label layoutX="104.0" layoutY="276.0" text="Item details:">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Label layoutX="104.0" layoutY="306.0" text="Description: ">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Label layoutX="104.0" layoutY="336.0" text="Clothing type:">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Label layoutX="104.0" layoutY="366.0" text="Item ID:">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Label layoutX="104.0" layoutY="416.0" text="Item status:">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Label layoutX="104.0" layoutY="453.0" text="Order status:">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Label layoutX="220.0" layoutY="443.0" text="Completed" textFill="#00bc16">
+            <font>
+                <Font size="30.0" />
+            </font>
+        </Label>
+        <Label layoutX="220.0" layoutY="406.0" text="Completed" textFill="#00dd07">
+            <font>
+                <Font size="30.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>
