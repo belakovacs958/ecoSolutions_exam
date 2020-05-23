@@ -1,6 +1,6 @@
-package UI.UIControl;
+package ecoSolutionsShop.UI.UIControl;
 
-import UI.UIControl.Controller;
+
 
 public interface windows {
     void setScreenParent(Controller screenPage);

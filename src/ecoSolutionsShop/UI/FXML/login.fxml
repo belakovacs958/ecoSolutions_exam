@@ -5,11 +5,11 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LoginController">
+<AnchorPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecoSolutionsShop.Controller.LoginController">
    <children>
       <TextField layoutX="641.0" layoutY="530.0" prefHeight="40.0" prefWidth="638.0" promptText="Enter Shop ID" />
       <TextField layoutX="641.0" layoutY="635.0" prefHeight="40.0" prefWidth="638.0" promptText="Enter password" />
-      <Button layoutX="910.0" layoutY="740.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="Login" />
+      <Button fx:id="loginBtn" layoutX="910.0" layoutY="740.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#login" prefHeight="40.0" prefWidth="100.0" text="Login" />
       <Text layoutX="737.0" layoutY="299.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dry Cleaning Center">
          <font>
             <Font size="50.0" />

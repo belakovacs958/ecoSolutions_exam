@@ -1,4 +1,6 @@
-import UI.UIControl.Controller;
+package ecoSolutionsShop;
+
+import ecoSolutionsShop.UI.UIControl.Controller;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
