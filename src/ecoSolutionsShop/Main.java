@@ -12,7 +12,7 @@ public class Main extends Application {
     //  window id and the fxml file
     public static String windowId1 = "login";
     public static String window1File = "login.fxml";
-    public static String windowId2 = "New Order";
+    public static String windowId2 = "Create New Order";
     public static String window2File = "newOrder.fxml";
     public static String windowId3 = "Manage client";
     public static String window3File = "manageClient.fxml";
