@@ -8,8 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.NewOrderController">
+<AnchorPane prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../CSS/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.NewOrderController">
    <children>
       <Button mnemonicParsing="false" prefHeight="110.0" prefWidth="640.0" style="-fx-background-color: C4C4C4;" text="Create new order">
          <font>
@@ -26,17 +25,17 @@
             <Font size="40.0" />
          </font>
       </Button>
-      <Label layoutX="104.0" layoutY="143.0" text="This is ..... 's account" textFill="#00bc16">
+      <Label layoutX="104.0" layoutY="130.0" text="This is ..... 's account" textFill="#00bc16">
          <font>
             <Font size="40.0" />
          </font>
       </Label>
-      <TextField layoutX="104.0" layoutY="223.0" prefHeight="40.0" prefWidth="370.0" promptText="Enter client ID">
+      <TextField layoutX="104.0" layoutY="200.0" prefHeight="40.0" prefWidth="370.0" promptText="Enter client ID">
          <font>
             <Font size="20.0" />
          </font>
       </TextField>
-      <Button layoutX="526.0" layoutY="223.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="GO">
+      <Button fx:id="goButton" layoutX="526.0" layoutY="200.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="GO">
          <font>
             <Font size="20.0" />
          </font>
@@ -70,5 +69,15 @@
             <Font size="20.0" />
          </font>
       </Button>
+      <Button layoutX="526.0" layoutY="252.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="GO">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <TextField layoutX="104.0" layoutY="252.0" prefHeight="40.0" prefWidth="370.0" promptText="Enter order ID">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
    </children>
 </AnchorPane>
