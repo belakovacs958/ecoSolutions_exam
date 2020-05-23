@@ -1,7 +1,7 @@
-package Controller;
+package ecoSolutionsShop.Controller;
 
-import UI.UIControl.Controller;
-import UI.UIControl.windows;
+import ecoSolutionsShop.UI.UIControl.Controller;
+import ecoSolutionsShop.UI.UIControl.windows;
 import javafx.fxml.Initializable;
 
 import java.net.URL;

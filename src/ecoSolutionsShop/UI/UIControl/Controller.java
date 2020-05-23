@@ -1,4 +1,4 @@
-package UI.UIControl;
+package ecoSolutionsShop.UI.UIControl;
 
 
 import javafx.animation.KeyFrame;
@@ -52,7 +52,7 @@ public class Controller extends StackPane {
         try {
             FXMLLoader myLoader = new FXMLLoader(getClass().getResource("../FXML/" + resource));
             Parent loadWindow = (Parent) myLoader.load();
-            UI.UIControl.windows myWindowController = ((windows)myLoader.getController());
+            ecoSolutionsShop.UI.UIControl.windows myWindowController = ((windows)myLoader.getController());
             myWindowController.setScreenParent(this);
             System.out.println("1:" + name + " 2:" + loadWindow);
             addWindow(name, loadWindow);

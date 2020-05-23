@@ -1,13 +1,13 @@
-package Controller;
+package ecoSolutionsShop.Controller;
 
-import UI.UIControl.Controller;
-import UI.UIControl.windows;
+import ecoSolutionsShop.UI.UIControl.Controller;
+import ecoSolutionsShop.UI.UIControl.windows;
 import javafx.fxml.Initializable;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ManageClientController implements Initializable, windows {
+public class NewOrderController implements Initializable, windows {
 
     Controller myController;
 
