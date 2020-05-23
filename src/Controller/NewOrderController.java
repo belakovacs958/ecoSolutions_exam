@@ -1,7 +1,7 @@
 package Controller;
 
-import UI.Controller;
-import UI.windows;
+import UI.UIControl.Controller;
+import UI.UIControl.windows;
 import javafx.fxml.Initializable;
 
 import java.net.URL;
