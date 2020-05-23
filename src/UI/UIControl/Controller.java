@@ -50,7 +50,7 @@ public class Controller extends StackPane {
 
     public boolean loadWindow(String name, String resource){
         try {
-            FXMLLoader myLoader = new FXMLLoader(getClass().getResource("../UI/" + resource));
+            FXMLLoader myLoader = new FXMLLoader(getClass().getResource("../FXML/" + resource));
             Parent loadWindow = (Parent) myLoader.load();
             UI.UIControl.windows myWindowController = ((windows)myLoader.getController());
             myWindowController.setScreenParent(this);

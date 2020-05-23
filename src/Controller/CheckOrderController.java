@@ -13,7 +13,7 @@ public class CheckOrderController implements Initializable, windows {
 
     @Override
     public void setScreenParent(Controller screenPage) {
-
+        myController = screenPage;
     }
 
     @Override
