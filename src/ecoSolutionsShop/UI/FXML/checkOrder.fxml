@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
 
 <AnchorPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecoSolutionsShop.Controller.CheckOrderController">
     <children>
@@ -38,12 +38,14 @@
                 <Font size="40.0" />
             </font>
         </Button>
-        <Button layoutX="640.0" mnemonicParsing="false" prefHeight="110.0" prefWidth="640.0" text="Manage client">
+        <Button fx:id="checkW_MCBtn" layoutX="640.0" mnemonicParsing="false" onAction="#goToManageClient" prefHeight="110.0" prefWidth="640.0" text="Manage client">
             <font>
                 <Font size="40.0" />
             </font>
         </Button>
-        <Button mnemonicParsing="false" prefHeight="110.0" prefWidth="640.0" style="" text="Create new order">
+
+        <Button fx:id="checkW_CNOBtn" mnemonicParsing="false" onAction="#goToCreateNewOrder" prefHeight="110.0" prefWidth="640.0" style="-: ;" text="Create new order">
+
             <font>
                 <Font size="40.0" />
             </font>

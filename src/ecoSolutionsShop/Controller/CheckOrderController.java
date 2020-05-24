@@ -1,7 +1,9 @@
 package ecoSolutionsShop.Controller;
 
+import ecoSolutionsShop.Main;
 import ecoSolutionsShop.UI.UIControl.Controller;
 import ecoSolutionsShop.UI.UIControl.windows;
+import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 
 import java.net.URL;
@@ -19,5 +21,13 @@ public class CheckOrderController implements Initializable, windows {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+    }
+
+    public void goToManageClient(ActionEvent actionEvent) {
+        myController.setWindow(Main.windowId3);
+    }
+
+    public void goToCreateNewOrder(ActionEvent actionEvent) {
+        myController.setWindow(Main.windowId2);
     }
 }
