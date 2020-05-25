@@ -28,7 +28,6 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage){
-        System.out.println("as"); // visual feed back
 
 
         Controller mainContainer = new Controller();
@@ -38,7 +37,7 @@ public class Main extends Application {
         mainContainer.loadWindow(Main.windowId4, Main.window4File);
 
 
-        // the default screen
+        // set the default screen
         mainContainer.setWindow(Main.windowId1);
 
 
