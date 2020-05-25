@@ -1,4 +1,4 @@
-package ecoSolutionsShop.UI.UIControl;
+package ecoSolutionsShop.View.UIControl;
 
 
 import javafx.animation.KeyFrame;
@@ -37,9 +37,10 @@ public class Controller extends StackPane {
         windows.put(name, window);
     }
 
-    public Node getWindow(String name){
+   /** public Node getWindow(String name){
         return windows.get(name);
     }
+*/
 
     /**
      *
@@ -52,23 +53,20 @@ public class Controller extends StackPane {
         try {
             FXMLLoader myLoader = new FXMLLoader(getClass().getResource("../FXML/" + resource));
             Parent loadWindow = (Parent) myLoader.load();
-            ecoSolutionsShop.UI.UIControl.windows myWindowController = ((windows)myLoader.getController());
+            ecoSolutionsShop.View.UIControl.windows myWindowController = ((windows)myLoader.getController());
             myWindowController.setScreenParent(this);
             System.out.println("1:" + name + " 2:" + loadWindow);
             addWindow(name, loadWindow);
             return true;
         }
+        // error message when the screen can't load
         catch (Exception e){
-            System.out.println("Error: screen hasn t been loaded " + e.getMessage());
+            System.out.println("Error: screen hasn't been loaded " + e.getMessage());
             return false;
         }
     }
 
-    /**
-     *
-     * @param name
-     * @return
-     */
+
 
     public boolean setWindow(final String name) {
         if(windows.get(name) != null) {
@@ -90,7 +88,6 @@ public class Controller extends StackPane {
                         }, new KeyValue(opacity, 0.0)));
                 fade.play();
 
-
             } else {
                 setOpacity(0.0);
                 getChildren().add(windows.get(name));
@@ -101,8 +98,8 @@ public class Controller extends StackPane {
             }
             return true;
 
-        } else {  // error message
-            System.out.println("screen hasn t been loaded! \n");
+        } else {
+            System.out.println("screen hasn't been loaded! \n");  // error message
             return false;
         }
     }
@@ -113,14 +110,15 @@ public class Controller extends StackPane {
      * @return
      */
 
-    // error message
+    /**
     public boolean unloadWindow(String name){
         if (windows.remove(name) == null){
-            System.out.println("screen didnt exist");
+            System.out.println("screen didn't exist");
             return false;
         } else {
             return true;
         }
     }
+     */
 
 }

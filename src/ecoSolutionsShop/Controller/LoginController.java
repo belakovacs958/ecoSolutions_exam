@@ -1,7 +1,7 @@
 package ecoSolutionsShop.Controller;
 
-import ecoSolutionsShop.UI.UIControl.Controller;
-import ecoSolutionsShop.UI.UIControl.windows;
+import ecoSolutionsShop.View.UIControl.Controller;
+import ecoSolutionsShop.View.UIControl.windows;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import ecoSolutionsShop.Main;
@@ -27,6 +27,7 @@ public class LoginController implements Initializable, windows {
 
     }
 
+    // set the New Order window
     public void login(ActionEvent actionEvent) {
         myController.setWindow(Main.windowId2);
     }
