@@ -1,4 +1,4 @@
-package ecoSolutionsShop.DB;
+package ecoSolutionsShop.Data;
 
 public class DBConnection {
 }
