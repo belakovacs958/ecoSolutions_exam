@@ -1,4 +1,4 @@
 package ecoSolutionsShop.Model;
 
-public class LanduryItem {
+public class LaundryItem {
 }
