@@ -1,8 +1,8 @@
 package ecoSolutionsShop.Controller;
 
 import ecoSolutionsShop.Main;
-import ecoSolutionsShop.UI.UIControl.Controller;
-import ecoSolutionsShop.UI.UIControl.windows;
+import ecoSolutionsShop.View.UIControl.Controller;
+import ecoSolutionsShop.View.UIControl.windows;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 
@@ -23,10 +23,12 @@ public class CheckOrderController implements Initializable, windows {
 
     }
 
+    // set the Manage Client window
     public void goToManageClient(ActionEvent actionEvent) {
         myController.setWindow(Main.windowId3);
     }
 
+    // set the Create the New Order window
     public void goToCreateNewOrder(ActionEvent actionEvent) {
         myController.setWindow(Main.windowId2);
     }

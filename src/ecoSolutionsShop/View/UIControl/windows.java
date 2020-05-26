@@ -1,4 +1,4 @@
-package ecoSolutionsShop.UI.UIControl;
+package ecoSolutionsShop.View.UIControl;
 
 
 

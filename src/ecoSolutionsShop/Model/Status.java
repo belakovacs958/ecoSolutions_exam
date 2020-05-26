@@ -1,4 +1,4 @@
-package ecoSolutionsShop.Services;
+package ecoSolutionsShop.Model;
 
 public enum Status {
     dirtyInShop, arrivedInCenter, inWashing, inDrying,

@@ -43,7 +43,9 @@
                 <Font size="40.0" />
             </font>
         </Button>
+
         <Button fx:id="checkW_CNOBtn" mnemonicParsing="false" onAction="#goToCreateNewOrder" prefHeight="110.0" prefWidth="640.0" style="-: ;" text="Create new order">
+
             <font>
                 <Font size="40.0" />
             </font>
