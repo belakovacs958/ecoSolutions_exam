@@ -43,13 +43,14 @@ public class LoginController implements Initializable, windows {
 
     // set the New Order window if login credentials are correct
     public void login(ActionEvent actionEvent) {
+        //sending the entered data for other classes for processing
         shopID = shopIDTextfield.getText();
         shopAccount.setShopID(shopID);
-        //dbMethods.setShopID(shopIDTextfield.getText());
-        //System.out.println(dbMethods.shopID);
-        ShopID.getInstance().shopID = shopID;
         password = passwordTextfield.getText();
         shopAccount.setPassword(password);
+        ShopID.getInstance().shopID = shopID;
+
+
         if (shopAccount.verifyCredentials()==true){
             myController.setWindow(Main.windowId2);
         }

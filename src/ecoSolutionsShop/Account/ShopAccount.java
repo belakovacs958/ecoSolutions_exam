@@ -23,7 +23,10 @@ public class ShopAccount {
     public boolean  verifyCredentials(){
         dbMethods.selectCredentials();
 
-        if (shopID.equals(dbMethods.getShopID()) && password.equals(dbMethods.getPassword())){
+        if (shopID.equals("") || password.equals("")){
+            return false;
+        }
+        else if (shopID.equals(dbMethods.getShopID()) && password.equals(dbMethods.getPassword())){
             return true;
         }
         else{
