@@ -12,6 +12,10 @@ import java.util.ResourceBundle;
 public class ManageClientController implements Initializable, windows {
 
     Controller myController;
+    private String clientID;
+    private String clientName;
+    private String clientEmail;
+    private String clientPhone;
 
     @Override
     public void setScreenParent(Controller screenPage) {
@@ -31,5 +35,14 @@ public class ManageClientController implements Initializable, windows {
     // set the Create New Order window
     public void goToCreateNewOrder(ActionEvent actionEvent) {
         myController.setWindow(Main.windowId2);
+    }
+
+    public void displayClientDetails() {
+    }
+
+    public void registerClient() {
+    }
+
+    public void go() {
     }
 }
