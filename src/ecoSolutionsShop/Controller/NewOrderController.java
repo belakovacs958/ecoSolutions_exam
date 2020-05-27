@@ -1,5 +1,6 @@
 package ecoSolutionsShop.Controller;
 
+import ecoSolutionsShop.Data.DBMethods;
 import ecoSolutionsShop.Main;
 import ecoSolutionsShop.View.UIControl.Controller;
 import ecoSolutionsShop.View.UIControl.windows;
@@ -12,6 +13,7 @@ import java.util.ResourceBundle;
 public class NewOrderController implements Initializable, windows {
 
     Controller myController;
+
 
     @Override
     public void setScreenParent(Controller screenPage) {
