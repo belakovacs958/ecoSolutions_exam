@@ -1,5 +1,6 @@
 package ecoSolutionsShop.Controller;
 
+import ecoSolutionsShop.Account.ShopAccount;
 import ecoSolutionsShop.Main;
 import ecoSolutionsShop.View.UIControl.Controller;
 import ecoSolutionsShop.View.UIControl.windows;
@@ -15,6 +16,7 @@ public class NewOrderController implements Initializable, windows {
     private String clientID;
     private String orderID;
     private String itemDescription;
+    ShopAccount shopAccount = new ShopAccount();
 
 
     @Override
@@ -33,8 +35,9 @@ public class NewOrderController implements Initializable, windows {
         myController.setWindow(Main.windowId3);
     }
 
-    // set teh Check Order
+    // set the Check Order
     public void goToCheckOrder(ActionEvent actionEvent) {
+
         myController.setWindow(Main.windowId4);
     }
 
