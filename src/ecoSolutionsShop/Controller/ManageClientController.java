@@ -7,6 +7,7 @@ import ecoSolutionsShop.View.UIControl.windows;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
@@ -16,18 +17,29 @@ import java.util.ResourceBundle;
 
 public class ManageClientController implements Initializable, windows {
 
-    Controller myController;
-    DBMethods dbMethods = new DBMethods();
-
+    ////////////////////////////////////////fields//////////////////////////////////
 
     private String clientEmail;
 
+    ////////////////////////////////////////objects///////////////////////////////////
+
+    Controller myController;
+    DBMethods dbMethods = new DBMethods();
+
+    ///////////////////////////////////////FXML///////////////////////////////////////
 
     @FXML
-    private TextField clientID_textfield;
+    private TextField clientID_textfield, clientName_textfield, clientEmail_textfield, clientPhone_textfield;
 
     @FXML
     private Label clientName_label, clientEmail_label, clientPhone_label, client_ID;
+
+    @FXML
+    private Button registerClient_btn;
+
+
+
+
 
     @Override
     public void setScreenParent(Controller screenPage) {
@@ -38,6 +50,9 @@ public class ManageClientController implements Initializable, windows {
     public void initialize(URL location, ResourceBundle resources) {
 
     }
+
+    ///////////////////////////////////////methods////////////////////////////////////
+
 
     // set the Check Order window
     public void goToCheckOrder(ActionEvent actionEvent) {
@@ -66,7 +81,6 @@ public class ManageClientController implements Initializable, windows {
         clientEmail = clientID_textfield.getText();
         dbMethods.setEmail(clientEmail);
         dbMethods.selectClient();
-
 
         displayClientDetails();
     }
