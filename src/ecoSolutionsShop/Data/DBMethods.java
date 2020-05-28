@@ -15,6 +15,21 @@ public class DBMethods {
     ShopID shopIDObject = new ShopID();
     public String shopID = "";
     private String password = "";
+    private String email;
+    private String name;
+    private String phoneNo;
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhoneNo() {
+        return phoneNo;
+    }
+
+    public String getName() {
+        return name;
+    }
 
     public void setShopID(String shopID) {
         this.shopID = shopID;
@@ -52,6 +67,19 @@ public class DBMethods {
     }
 
     public void selectClient() {
+
+        try {
+            PreparedStatement query = DBConnection.getConnect().prepareStatement("SELECT * FROM tblCustomer WHERE fldEmail = ?");
+            query.setString(1, email);
+            ResultSet resultSet = query.executeQuery();
+            if (resultSet.next()) {
+                name = resultSet.getString(2);
+                phoneNo = resultSet.getString(3);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
 
     }
 

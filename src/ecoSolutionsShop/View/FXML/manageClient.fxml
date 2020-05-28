@@ -29,22 +29,22 @@
             <Font size="20.0" />
          </font>
       </Button>
-      <TextField fx:id="clientID_textfield_mw" layoutX="104.0" layoutY="233.0" prefHeight="40.0" prefWidth="370.0" promptText="Enter client ID">
+      <TextField fx:id="clientID_textfield" layoutX="104.0" layoutY="233.0" prefHeight="40.0" prefWidth="370.0" promptText="Enter client ID">
          <font>
             <Font size="20.0" />
          </font>
       </TextField>
-      <Label fx:id="client_name" layoutX="104.0" layoutY="339.0" text="Client name:">
+      <Label fx:id="clientName_label" layoutX="104.0" layoutY="339.0" text="Client name:">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
-      <Label fx:id="client_email" layoutX="104.0" layoutY="421.0" text="Client email:">
+      <Label fx:id="clientEmail_label" layoutX="104.0" layoutY="421.0" text="Client email:">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
-      <Label fx:id="client_phone" layoutX="104.0" layoutY="503.0" text="Client phone number:">
+      <Label fx:id="clientPhone_label" layoutX="104.0" layoutY="503.0" text="Client phone number:">
          <font>
             <Font size="30.0" />
          </font>
