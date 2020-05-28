@@ -24,32 +24,32 @@
             <Font size="40.0" />
          </font>
       </Button>
-      <Button layoutX="526.0" layoutY="233.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="GO">
+      <Button fx:id="go_btn_mw" layoutX="526.0" layoutY="233.0" mnemonicParsing="false" onAction="#go" prefHeight="40.0" prefWidth="100.0" text="GO">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <TextField layoutX="104.0" layoutY="233.0" prefHeight="40.0" prefWidth="370.0" promptText="Enter client ID">
+      <TextField fx:id="clientID_textfield_mw" layoutX="104.0" layoutY="233.0" prefHeight="40.0" prefWidth="370.0" promptText="Enter client ID">
          <font>
             <Font size="20.0" />
          </font>
       </TextField>
-      <Label layoutX="104.0" layoutY="339.0" text="Client name:">
+      <Label fx:id="client_name" layoutX="104.0" layoutY="339.0" text="Client name:">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
-      <Label layoutX="104.0" layoutY="421.0" text="Client email:">
+      <Label fx:id="client_email" layoutX="104.0" layoutY="421.0" text="Client email:">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
-      <Label layoutX="104.0" layoutY="503.0" text="Client phone number:">
+      <Label fx:id="client_phone" layoutX="104.0" layoutY="503.0" text="Client phone number:">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
-      <Label layoutX="104.0" layoutY="585.0" text="Client ID:">
+      <Label fx:id="client_ID" layoutX="104.0" layoutY="585.0" text="Client ID:">
          <font>
             <Font size="30.0" />
          </font>
