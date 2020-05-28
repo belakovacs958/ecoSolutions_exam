@@ -28,8 +28,8 @@ public class ManageClientController implements Initializable, windows {
     private TextField clientID_textfield_mw, clientName_textfield, clientEmail_textfield, clientPhone_textfield;
 
     @FXML
-    private Label client_name, client_email, client_phone, client_ID;
-
+    private Label clientName_label, clientEmail_label, clientPhone_label;
+    
     @FXML
     private Button registerClient_btn;
 
@@ -70,6 +70,7 @@ public class ManageClientController implements Initializable, windows {
     public void go() {
 
         clientID = clientID_textfield_mw.getText();
+        
 
         displayClientDetails();
     }
