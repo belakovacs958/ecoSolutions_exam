@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecoSolutionsShop.Controller.ManageClientController">
+<AnchorPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecoSolutionsShop.Controller.ManageClientController">
    <children>
       <Button fx:id="manageW_COBtn" layoutX="1280.0" mnemonicParsing="false" onAction="#goToCheckOrder" prefHeight="110.0" prefWidth="640.0" text="Check order">
          <font>
@@ -54,22 +53,22 @@
             <Font size="30.0" />
          </font>
       </Label>
-      <TextField layoutX="1351.0" layoutY="223.0" prefHeight="40.0" prefWidth="370.0" promptText="Enter client name">
+      <TextField fx:id="clientName_textfield" layoutX="1351.0" layoutY="223.0" prefHeight="40.0" prefWidth="370.0" promptText="Enter client name">
          <font>
             <Font size="20.0" />
          </font>
       </TextField>
-      <TextField layoutX="1351.0" layoutY="339.0" prefHeight="40.0" prefWidth="370.0" promptText="Enter client email">
+      <TextField fx:id="clientEmail_textfield" layoutX="1351.0" layoutY="339.0" prefHeight="40.0" prefWidth="370.0" promptText="Enter client email">
          <font>
             <Font size="20.0" />
          </font>
       </TextField>
-      <TextField layoutX="1351.0" layoutY="455.0" prefHeight="40.0" prefWidth="370.0" promptText="Enter client phone number">
+      <TextField fx:id="clientPhone_textfield" layoutX="1351.0" layoutY="455.0" prefHeight="40.0" prefWidth="370.0" promptText="Enter client phone number">
          <font>
             <Font size="20.0" />
          </font>
       </TextField>
-      <Button layoutX="1351.0" layoutY="571.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" text="Register client">
+      <Button fx:id="registerClient_btn" layoutX="1351.0" layoutY="571.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" text="Register client">
          <font>
             <Font size="20.0" />
          </font>

@@ -1,12 +1,12 @@
 package ecoSolutionsShop.Controller;
 
-import ecoSolutionsShop.Data.DBMethods;
 import ecoSolutionsShop.Main;
 import ecoSolutionsShop.View.UIControl.Controller;
 import ecoSolutionsShop.View.UIControl.windows;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
@@ -16,18 +16,22 @@ import java.util.ResourceBundle;
 
 public class ManageClientController implements Initializable, windows {
 
-    Controller myController;
-    DBMethods dbMethods = new DBMethods();
 
-
+    private String clientID;
+    private String clientName;
     private String clientEmail;
+    private String clientPhone;
 
+    Controller myController;
 
     @FXML
-    private TextField clientID_textfield;
+    private TextField clientID_textfield_mw, clientName_textfield, clientEmail_textfield, clientPhone_textfield;
 
     @FXML
-    private Label clientName_label, clientEmail_label, clientPhone_label, client_ID;
+    private Label client_name, client_email, client_phone, client_ID;
+
+    @FXML
+    private Button registerClient_btn;
 
     @Override
     public void setScreenParent(Controller screenPage) {
@@ -51,22 +55,21 @@ public class ManageClientController implements Initializable, windows {
 
     public void displayClientDetails() {
 
-        clientName_label.setText(dbMethods.getName());
-        clientEmail_label.setText(clientEmail);
-        clientPhone_label.setText(dbMethods.getPhoneNo());
-
+        client_name.setText(clientName);
+        client_email.setText(clientEmail);
+        client_phone.setText(clientPhone);
+        client_ID.setText(clientID);
 
     }
 
     public void registerClient() {
+
+
     }
 
     public void go() {
 
-        clientEmail = clientID_textfield.getText();
-        dbMethods.setEmail(clientEmail);
-        dbMethods.selectClient();
-
+        clientID = clientID_textfield_mw.getText();
 
         displayClientDetails();
     }

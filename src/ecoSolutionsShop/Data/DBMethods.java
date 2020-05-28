@@ -11,8 +11,9 @@ import java.sql.SQLException;
 
 public class DBMethods {
 
+    /////////////////////////////Fields////////////////////////////////////////
 
-    ShopID shopIDObject = new ShopID();
+
     public String shopID = "";
     private String password = "";
     private String email;
@@ -31,37 +32,15 @@ public class DBMethods {
         return name;
     }
 
-    public void setShopID(String shopID) {
-        this.shopID = shopID;
-    }
-    public String getShopID() {
-        return shopID;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-    /*
-    String name = "";
-    int sellPrice = 0;
-    public void testMethod(){
-        try {
-            PreparedStatement query = DBConnection.getConnect().prepareStatement("SELECT * FROM tblClothingType WHERE fldClothingTypeID = ?");
-            query.setString(1, "a");
-            ResultSet resultSet = query.executeQuery();
-            if (resultSet.next()) {
-                name = resultSet.getString(2);
-                sellPrice = resultSet.getInt(3);
 
 
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        System.out.println(name + sellPrice);
-    }
-    */
+    //////////////////////////////Objects///////////////////////////////////////
 
+    ShopID shopIDObject = new ShopID();
+
+
+
+    //////////////////////////////Methods////////////////////////////////////////
     public void selectShop() {
 
     }
@@ -98,6 +77,8 @@ public class DBMethods {
     public void insertClient(){
 
     }
+
+
     //selects password from tblShop for a shopIS which is entered into the login form
     public void selectCredentials(){
         System.out.println(shopID);
@@ -112,6 +93,17 @@ public class DBMethods {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    ////////////////////////////////Getters and setters/////////////////////////////
+
+
+    public String getShopID() {
+        return shopID;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
 
