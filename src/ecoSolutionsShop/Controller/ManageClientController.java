@@ -1,5 +1,6 @@
 package ecoSolutionsShop.Controller;
 
+import ecoSolutionsShop.Data.DBMethods;
 import ecoSolutionsShop.Main;
 import ecoSolutionsShop.View.UIControl.Controller;
 import ecoSolutionsShop.View.UIControl.windows;
@@ -16,16 +17,17 @@ import java.util.ResourceBundle;
 public class ManageClientController implements Initializable, windows {
 
     Controller myController;
-    private String clientID;
-    private String clientName;
+    DBMethods dbMethods = new DBMethods();
+
+
     private String clientEmail;
-    private String clientPhone;
+
 
     @FXML
-    private TextField clientID_textfield_mw;
+    private TextField clientID_textfield;
 
     @FXML
-    private Label client_name, client_email, client_phone, client_ID;
+    private Label clientName_label, clientEmail_label, clientPhone_label, client_ID;
 
     @Override
     public void setScreenParent(Controller screenPage) {
@@ -49,10 +51,10 @@ public class ManageClientController implements Initializable, windows {
 
     public void displayClientDetails() {
 
-        client_name.setText(clientName);
-        client_email.setText(clientEmail);
-        client_phone.setText(clientPhone);
-        client_ID.setText(clientID);
+        clientName_label.setText(dbMethods.getName());
+        clientEmail_label.setText(clientEmail);
+        clientPhone_label.setText(dbMethods.getPhoneNo());
+
 
     }
 
@@ -61,7 +63,10 @@ public class ManageClientController implements Initializable, windows {
 
     public void go() {
 
-        clientID = clientID_textfield_mw.getText();
+        clientEmail = clientID_textfield.getText();
+        dbMethods.setEmail(clientEmail);
+        dbMethods.selectClient();
+
 
         displayClientDetails();
     }
