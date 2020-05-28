@@ -27,7 +27,7 @@ public class ManageClientController implements Initializable, windows {
     private TextField clientID_textfield;
 
     @FXML
-    private Label clientName_label, clientEmail_label, clientPhone_label, client_ID;
+    private Label clientName_label, clientEmail_label, clientPhone_label;
 
     @Override
     public void setScreenParent(Controller screenPage) {
