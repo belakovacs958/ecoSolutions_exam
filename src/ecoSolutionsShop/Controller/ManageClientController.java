@@ -1,6 +1,5 @@
 package ecoSolutionsShop.Controller;
 
-import ecoSolutionsShop.Data.DBMethods;
 import ecoSolutionsShop.Main;
 import ecoSolutionsShop.View.UIControl.Controller;
 import ecoSolutionsShop.View.UIControl.windows;
@@ -17,9 +16,15 @@ import java.util.ResourceBundle;
 
 public class ManageClientController implements Initializable, windows {
 
+
     ////////////////////////////////////////fields//////////////////////////////////
 
+
+    private String clientID;
+    private String clientName;
     private String clientEmail;
+    private String clientPhone;
+
 
     ////////////////////////////////////////objects///////////////////////////////////
 
@@ -28,11 +33,18 @@ public class ManageClientController implements Initializable, windows {
 
     ///////////////////////////////////////FXML///////////////////////////////////////
 
-    @FXML
-    private TextField clientID_textfield, clientName_textfield, clientEmail_textfield, clientPhone_textfield;
+
+
+    Controller myController;
 
     @FXML
-    private Label clientName_label, clientEmail_label, clientPhone_label, client_ID;
+    private TextField clientID_textfield_mw, clientName_textfield, clientEmail_textfield, clientPhone_textfield;
+
+    @FXML
+    private Label clientName_label, clientEmail_label, clientPhone_label;
+    
+    @FXML
+    private Button registerClient_btn;
 
     @FXML
     private Button registerClient_btn;
@@ -66,21 +78,25 @@ public class ManageClientController implements Initializable, windows {
 
     public void displayClientDetails() {
 
-        clientName_label.setText(dbMethods.getName());
-        clientEmail_label.setText(clientEmail);
-        clientPhone_label.setText(dbMethods.getPhoneNo());
-
+        client_name.setText(clientName);
+        client_email.setText(clientEmail);
+        client_phone.setText(clientPhone);
+        client_ID.setText(clientID);
 
     }
 
     public void registerClient() {
+
+
     }
 
     public void go() {
 
+
         clientEmail = clientID_textfield.getText();
         dbMethods.setEmail(clientEmail);
         dbMethods.selectClient();
+
 
         displayClientDetails();
     }

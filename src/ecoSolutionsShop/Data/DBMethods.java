@@ -6,19 +6,48 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
+    /////////////////////////////Fields////////////////////////////////////////
+
+
 
 public class DBMethods {
 
     ////////////////////////////////////////fields////////////////////////////////////
+
+    
     private String email;
     private String name;
     private String phoneNo;
+
 
     ////////////////////////////////////////objects///////////////////////////////////
 
 
 
     ///////////////////////////////////////methods////////////////////////////////////
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhoneNo() {
+        return phoneNo;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+
+
+    //////////////////////////////Objects///////////////////////////////////////
+
+    ShopID shopIDObject = new ShopID();
+
+
+
+    //////////////////////////////Methods////////////////////////////////////////
+
     public void selectShop() {
 
     }
@@ -56,6 +85,7 @@ public class DBMethods {
 
     }
 
+
     //selects password from tblShop for a shopIS which is entered into the login form
     public boolean selectCredentials(String shopID, String password) {
         try {
@@ -74,8 +104,7 @@ public class DBMethods {
         return false;
     }
 
-
-
+  
 
 //////////////////////////////////////getters and setters/////////////////////////
     public void setEmail(String email) {
