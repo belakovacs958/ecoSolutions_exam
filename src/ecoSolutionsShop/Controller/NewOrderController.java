@@ -31,7 +31,6 @@ public class NewOrderController implements Initializable, windows {
 
     // set the Manage Client window
     public void goToManageClient(ActionEvent actionEvent) {
-
         myController.setWindow(Main.windowId3);
     }
 

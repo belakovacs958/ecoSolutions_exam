@@ -3,7 +3,6 @@ package ecoSolutionsShop.Controller;
 import ecoSolutionsShop.Account.ShopAccount;
 import ecoSolutionsShop.Data.DBMethods;
 import ecoSolutionsShop.Main;
-import ecoSolutionsShop.Model.ShopID;
 import ecoSolutionsShop.View.UIControl.Controller;
 import ecoSolutionsShop.View.UIControl.windows;
 import javafx.event.ActionEvent;
@@ -16,19 +15,23 @@ import java.util.ResourceBundle;
 
 public class LoginController implements Initializable, windows {
 
+    ////////////////////////////////////////fields//////////////////////////////////
+
+    private String shopID = "";
+    private String password = "";
+
+    ////////////////////////////////////////objects///////////////////////////////////
 
     ShopAccount shopAccount = new ShopAccount();
-    //DBMethods dbMethods = new DBMethods();
+    DBMethods dbMethods = new DBMethods();
     Controller myController;
+
+    ///////////////////////////////////////FXML///////////////////////////////////////
 
     @FXML
     TextField shopIDTextfield,passwordTextfield;
     @FXML
     Label errorLabel;
-
-    private String shopID = "";
-    private String password = "";
-
 
 
     @Override
@@ -40,25 +43,24 @@ public class LoginController implements Initializable, windows {
     public void initialize(URL location, ResourceBundle resources) {
     }
 
+    ///////////////////////////////////////methods////////////////////////////////////
 
     // set the New Order window if login credentials are correct
     public void login(ActionEvent actionEvent) {
         //sending the entered data for other classes for processing
         shopID = shopIDTextfield.getText();
-        shopAccount.setShopID(shopID);
         password = passwordTextfield.getText();
-        shopAccount.setPassword(password);
-        ShopID.getInstance().shopID = shopID;
+        shopAccount.setShopID(shopID);
 
 
-        if (shopAccount.verifyCredentials()==true){
+
+        if (dbMethods.selectCredentials(shopID,password)==true){
             myController.setWindow(Main.windowId2);
         }
         else{
+            passwordTextfield.setText("");
             errorLabel.setText("Incorrect shop ID or Password!");
         }
-
-
 
     }
 }

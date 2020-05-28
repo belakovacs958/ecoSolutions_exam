@@ -1,39 +1,16 @@
 package ecoSolutionsShop.Account;
 
 
-import ecoSolutionsShop.Data.DBMethods;
-
 public class ShopAccount {
 
+ private static String shopID = "";
 
-    DBMethods dbMethods = new DBMethods();
-    private String shopID;
-    private String password;
-
-
-    public void setShopID(String shopID) {
-        this.shopID = shopID;
+    public static String getShopID() {
+        return shopID;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public static void setShopID(String shopID) {
+        ShopAccount.shopID = shopID;
     }
-
-    //verifies if the password for a given shop ID is matching with the password entered into the login form
-    public boolean  verifyCredentials(){
-        dbMethods.selectCredentials();
-
-        if (shopID.equals("") || password.equals("")){
-            return false;
-        }
-        else if (shopID.equals(dbMethods.getShopID()) && password.equals(dbMethods.getPassword())){
-            return true;
-        }
-        else{
-            System.out.println("Credentials in database and credentials given , doesn't match");
-            return false;
-        }
-
-    }
-
 }
+

@@ -1,24 +1,30 @@
 package ecoSolutionsShop.Data;
 
-import ecoSolutionsShop.Account.ShopAccount;
-import ecoSolutionsShop.Controller.LoginController;
-import ecoSolutionsShop.Model.ShopID;
 
-import java.lang.reflect.Field;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class DBMethods {
 
     /////////////////////////////Fields////////////////////////////////////////
 
 
-    public String shopID = "";
-    private String password = "";
+
+public class DBMethods {
+
+    ////////////////////////////////////////fields////////////////////////////////////
+
+    
     private String email;
     private String name;
     private String phoneNo;
+
+
+    ////////////////////////////////////////objects///////////////////////////////////
+
+
+
+    ///////////////////////////////////////methods////////////////////////////////////
 
     public void setEmail(String email) {
         this.email = email;
@@ -41,6 +47,7 @@ public class DBMethods {
 
 
     //////////////////////////////Methods////////////////////////////////////////
+
     public void selectShop() {
 
     }
@@ -66,45 +73,50 @@ public class DBMethods {
 
     }
 
-    public void selectLaundryItem(){
+    public void selectLaundryItem() {
 
     }
 
-    public void selectOrder(){
+    public void selectOrder() {
 
     }
 
-    public void insertClient(){
+    public void insertClient() {
 
     }
 
 
     //selects password from tblShop for a shopIS which is entered into the login form
-    public void selectCredentials(){
-        System.out.println(shopID);
+    public boolean selectCredentials(String shopID, String password) {
         try {
-            PreparedStatement query = DBConnection.getConnect().prepareStatement("SELECT * FROM tblShop WHERE fldDeliveryPonintID = ?"); //!!!!be careful there is a typo in the field name
-            query.setString(1, shopIDObject.getInstance().shopID);
+            PreparedStatement query = DBConnection.getConnect().prepareStatement("SELECT * FROM tblShop WHERE fldDeliveryPonintID = ? and fldPassword = ?"); //!!!!be careful there is a typo in the field name
+            query.setString(1, shopID);
+            query.setString(2, password);
             ResultSet resultSet = query.executeQuery();
             if (resultSet.next()) {
-                shopID = resultSet.getString(1);
-                password = resultSet.getString(4);
+                return true;
             }
-        } catch (SQLException e) {
+
+        }
+        catch (SQLException e) {
             e.printStackTrace();
         }
+        return false;
     }
 
-    ////////////////////////////////Getters and setters/////////////////////////////
+  
 
-
-    public String getShopID() {
-        return shopID;
+//////////////////////////////////////getters and setters/////////////////////////
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPhoneNo() {
+        return phoneNo;
     }
 
+    public String getName() {
+        return name;
+    }
 
 }

@@ -17,10 +17,23 @@ import java.util.ResourceBundle;
 public class ManageClientController implements Initializable, windows {
 
 
+    ////////////////////////////////////////fields//////////////////////////////////
+
+
     private String clientID;
     private String clientName;
     private String clientEmail;
     private String clientPhone;
+
+
+    ////////////////////////////////////////objects///////////////////////////////////
+
+    Controller myController;
+    DBMethods dbMethods = new DBMethods();
+
+    ///////////////////////////////////////FXML///////////////////////////////////////
+
+
 
     Controller myController;
 
@@ -33,6 +46,13 @@ public class ManageClientController implements Initializable, windows {
     @FXML
     private Button registerClient_btn;
 
+    @FXML
+    private Button registerClient_btn;
+
+
+
+
+
     @Override
     public void setScreenParent(Controller screenPage) {
         myController = screenPage;
@@ -42,6 +62,9 @@ public class ManageClientController implements Initializable, windows {
     public void initialize(URL location, ResourceBundle resources) {
 
     }
+
+    ///////////////////////////////////////methods////////////////////////////////////
+
 
     // set the Check Order window
     public void goToCheckOrder(ActionEvent actionEvent) {
@@ -69,8 +92,11 @@ public class ManageClientController implements Initializable, windows {
 
     public void go() {
 
-        clientID = clientID_textfield_mw.getText();
-        
+
+        clientEmail = clientID_textfield.getText();
+        dbMethods.setEmail(clientEmail);
+        dbMethods.selectClient();
+
 
         displayClientDetails();
     }
