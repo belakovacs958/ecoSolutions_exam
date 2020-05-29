@@ -1,14 +1,10 @@
 package ecoSolutionsShop.Account;
 
 public class ClientAccount {
-    private static String email = "";
 
+    private String name, phoneNo, email;
 
-    public static String getEmail() {
-        return email;
-    }
+    public void createClientAccount(){
 
-    public static void setEmail(String email) {
-        ClientAccount.email = email;
     }
 }
