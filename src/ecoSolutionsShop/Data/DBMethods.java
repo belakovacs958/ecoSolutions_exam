@@ -52,7 +52,37 @@ public class DBMethods {
 
     }
 
-    public void insertClient() {
+
+    //checks if the given email is registered for a client in the database
+    public boolean isClientRegistered(String email){
+        try {
+            PreparedStatement query = DBConnection.getConnect().prepareStatement("SELECT * FROM tblCustomer WHERE fldEmail = ? ");
+            query.setString(1, email);
+            ResultSet resultSet = query.executeQuery();
+            if (resultSet.next()) {
+                return true;
+            }
+
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public void insertClient(String fullName, String email, String phoneNo) {
+        try {
+            PreparedStatement query = DBConnection.getConnect().prepareStatement("INSERT INTO tblCustomer (fldEmail, fldFullName, fldPhoneNo) " +
+                    "VALUES (?,?,?);");
+                    query.setString(1, email);
+                    query.setString(2, fullName);
+                    query.setString(3, phoneNo);
+                    query.executeUpdate();
+
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
 
     }
 
