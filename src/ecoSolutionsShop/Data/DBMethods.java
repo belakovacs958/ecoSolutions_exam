@@ -28,23 +28,12 @@ public class DBMethods {
 
     ///////////////////////////////////////methods////////////////////////////////////
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPhoneNo() {
-        return phoneNo;
-    }
-
-    public String getName() {
-        return name;
-    }
 
 
 
     //////////////////////////////Objects///////////////////////////////////////
 
-    ShopID shopIDObject = new ShopID();
+
 
 
 
