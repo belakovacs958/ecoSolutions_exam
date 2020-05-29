@@ -68,16 +68,15 @@ public class ManageClientController implements Initializable, windows {
     public void displayClientDetails() {
 
         clientName_label.setText("Client name: " + dbMethods.getName());
-        clientEmail_label.setText("Client email: " + clientEmail);
+        clientEmail_label.setText("Client email: " + clientID_textfield.getText());
         clientPhone_label.setText("Client phone number: " + dbMethods.getPhoneNo());
-
 
     }
     //registers a client if it is not already registered
     public void registerClient() {
 
         //checks if the given email is already registered or not , if yes it displays an error message
-        if(dbMethods.isClientRegistered(clientEmail_textfield.getText())==true){
+        if(dbMethods.isEmailRegistered(clientEmail_textfield.getText())==true){
            // successMessage_label.setText("");
             errorMessage_label.setText("Client registration failed! A client with: "+clientEmail_textfield.getText()+" email already exists");
             clientName_textfield.setText("");
@@ -96,10 +95,7 @@ public class ManageClientController implements Initializable, windows {
     }
 
     public void go() {
-
-        clientEmail = clientID_textfield.getText();
-        dbMethods.setEmail(clientEmail);
-        dbMethods.selectClient();
+        dbMethods.selectClient(clientID_textfield.getText());
 
         displayClientDetails();
     }

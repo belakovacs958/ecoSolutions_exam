@@ -1,6 +1,8 @@
 package ecoSolutionsShop.Data;
 
 
+import ecoSolutionsShop.Model.Status;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,6 +16,7 @@ public class DBMethods {
     private String name;
     private String phoneNo;
 
+
     ////////////////////////////////////////objects///////////////////////////////////
 
 
@@ -23,7 +26,37 @@ public class DBMethods {
 
     }
 
-    public void selectClient() {
+    public void insertOrder(String email, String shopID){
+        try {
+            PreparedStatement query = DBConnection.getConnect().prepareStatement("INSERT INTO tblOrder (fldEmail, fdlDeliveryPointID, fldOrderStatus) " +    // !!!fdlDeliveryPoint has a typo
+                    "VALUES (?,?,?);");
+            query.setString(1, email);
+            query.setString(2, shopID);
+            query.setString(3, "dirtyInShop");
+            query.executeUpdate();
+
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public void selectClient(String email) {
 
         try {
             PreparedStatement query = DBConnection.getConnect().prepareStatement("SELECT * FROM tblCustomer WHERE fldEmail = ?");
@@ -40,7 +73,21 @@ public class DBMethods {
 
     }
 
-    public void insertLaundryItem() {
+    public void insertLaundryItem(String description, int orderID, String clothingTypeID) {
+        try {
+            PreparedStatement query = DBConnection.getConnect().prepareStatement("INSERT INTO tblLaundryItem (fldDescription, fldOrderID, fldClothingTypeID) " +
+                    "VALUES (?,?,?);");
+            query.setString(1, description);
+            query.setInt(2, orderID);
+            query.setString(3, clothingTypeID);
+            query.executeUpdate();
+
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
 
     }
 
@@ -48,13 +95,25 @@ public class DBMethods {
 
     }
 
-    public void selectOrder() {
+    public int selectMostRecentOrderIDForGivenEmail(String email) {
+        int recentOrderID = 0;
+        try {
+            PreparedStatement query = DBConnection.getConnect().prepareStatement("select top 1 fldOrderID from tblOrder where fldEmail =? order by fldOrderID desc");
+            query.setString(1, email);
+            query.executeQuery();
+            return recentOrderID;
+
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
 
     }
 
 
     //checks if the given email is registered for a client in the database
-    public boolean isClientRegistered(String email){
+    public boolean isEmailRegistered(String email){
         try {
             PreparedStatement query = DBConnection.getConnect().prepareStatement("SELECT * FROM tblCustomer WHERE fldEmail = ? ");
             query.setString(1, email);

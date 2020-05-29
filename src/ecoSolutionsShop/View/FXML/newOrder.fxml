@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../CSS/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecoSolutionsShop.Controller.NewOrderController">
+<AnchorPane prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../CSS/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecoSolutionsShop.Controller.NewOrderController">
    <children>
       <Button mnemonicParsing="false" prefHeight="110.0" prefWidth="640.0" style="-fx-background-color: C4C4C4;" text="Create new order">
          <font>
@@ -25,17 +27,17 @@
             <Font size="40.0" />
          </font>
       </Button>
-      <Label layoutX="104.0" layoutY="130.0" text="This is ..... 's account" textFill="#00bc16">
+      <Label fx:id="clientName_label" layoutX="104.0" layoutY="130.0" text="This is ..... 's account" textFill="#00bc16">
          <font>
             <Font size="40.0" />
          </font>
       </Label>
-      <TextField layoutX="104.0" layoutY="200.0" prefHeight="40.0" prefWidth="370.0" promptText="Enter client ID">
+      <TextField fx:id="clientEmail_textfield" layoutX="104.0" layoutY="200.0" prefHeight="40.0" prefWidth="370.0" promptText="Enter client ID">
          <font>
             <Font size="20.0" />
          </font>
       </TextField>
-      <Button fx:id="goButton" layoutX="526.0" layoutY="200.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="GO">
+      <Button fx:id="go_btn" layoutX="526.0" layoutY="200.0" mnemonicParsing="false" onAction="#go" prefHeight="40.0" prefWidth="100.0" text="GO">
          <font>
             <Font size="20.0" />
          </font>
@@ -53,7 +55,7 @@
             <TableColumn prefWidth="190.0" text="Item ID" />
         </columns>
       </TableView>
-      <TextField layoutX="1351.0" layoutY="306.0" prefHeight="40.0" prefWidth="370.0" promptText="Enter item description">
+      <TextField fx:id="itemDescription_textfield" layoutX="1351.0" layoutY="306.0" prefHeight="40.0" prefWidth="370.0" promptText="Enter item description">
          <font>
             <Font size="20.0" />
          </font>
@@ -64,7 +66,7 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <Button layoutX="1349.0" layoutY="1010.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: GREEN;" text="Add item" textFill="WHITE">
+      <Button fx:id="addItem_btn" layoutX="1349.0" layoutY="1010.0" mnemonicParsing="false" onAction="#addItem" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: GREEN;" text="Add item" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
