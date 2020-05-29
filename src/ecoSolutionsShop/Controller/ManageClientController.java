@@ -91,7 +91,6 @@ public class ManageClientController implements Initializable, windows {
             clientName_textfield.setText("");
             clientEmail_textfield.setText("");
             clientPhone_textfield.setText("");
-            // commit comment
         }
     }
 
