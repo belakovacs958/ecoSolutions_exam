@@ -28,7 +28,7 @@
             <Font size="20.0" />
          </font>
       </Button>
-      <TextField fx:id="clientID_textfield" layoutX="104.0" layoutY="233.0" prefHeight="40.0" prefWidth="370.0" promptText="Enter client ID">
+      <TextField fx:id="clientID_textfield" layoutX="104.0" layoutY="233.0" prefHeight="40.0" prefWidth="370.0" promptText="Enter client email">
          <font>
             <Font size="20.0" />
          </font>
@@ -48,11 +48,6 @@
             <Font size="30.0" />
          </font>
       </Label>
-      <Label fx:id="client_ID" layoutX="104.0" layoutY="585.0" text="Client ID:">
-         <font>
-            <Font size="30.0" />
-         </font>
-      </Label>
       <TextField fx:id="clientName_textfield" layoutX="1351.0" layoutY="223.0" prefHeight="40.0" prefWidth="370.0" promptText="Enter client name">
          <font>
             <Font size="20.0" />
@@ -68,10 +63,20 @@
             <Font size="20.0" />
          </font>
       </TextField>
-      <Button fx:id="registerClient_btn" layoutX="1351.0" layoutY="571.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" text="Register client">
+      <Button fx:id="registerClient_btn" layoutX="1351.0" layoutY="571.0" mnemonicParsing="false" onAction="#registerClient" prefHeight="40.0" prefWidth="180.0" text="Register client">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
+      <Label fx:id="successMessage_label" layoutX="1351.0" layoutY="520.0" text=" " textFill="#0b8600">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="errorMessage_label" layoutX="1351.0" layoutY="520.0" text=" " textFill="RED">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
