@@ -28,14 +28,19 @@ public class ManageClientController implements Initializable, windows {
 
     ///////////////////////////////////////FXML///////////////////////////////////////
 
+
+
+
     @FXML
     private TextField clientID_textfield, clientName_textfield, clientEmail_textfield, clientPhone_textfield;
 
     @FXML
     private Label clientName_label, clientEmail_label, clientPhone_label, successMessage_label, errorMessage_label;
-
+    
     @FXML
     private Button registerClient_btn;
+
+
 
 
 
