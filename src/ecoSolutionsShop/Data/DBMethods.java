@@ -24,7 +24,7 @@ public class DBMethods {
 
     ////////////////////////////////////////objects///////////////////////////////////
 
-
+    Status status = new Status();
 
     ///////////////////////////////////////methods////////////////////////////////////
 
@@ -49,7 +49,7 @@ public class DBMethods {
                     "VALUES (?,?,?);");
             query.setString(1, email);
             query.setString(2, shopID);
-            query.setString(3, "dirtyInShop");
+            query.setString(3, Status.dirtyInShop);
             query.executeUpdate();
 
         }
@@ -58,19 +58,6 @@ public class DBMethods {
         }
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     public void selectClient(String email) {

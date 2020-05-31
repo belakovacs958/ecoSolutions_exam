@@ -8,7 +8,6 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../CSS/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecoSolutionsShop.Controller.NewOrderController">
    <children>
@@ -60,12 +59,7 @@
             <Font size="20.0" />
          </font>
       </TextField>
-      <ChoiceBox layoutX="1349.0" layoutY="455.0" prefHeight="40.0" prefWidth="370.0" />
-      <Text layoutX="1359.0" layoutY="480.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose clothing type">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Text>
+      <ChoiceBox fx:id="clothingType_choiceBox" layoutX="1349.0" layoutY="455.0" prefHeight="40.0" prefWidth="370.0" />
       <Button fx:id="addItem_btn" layoutX="1349.0" layoutY="1010.0" mnemonicParsing="false" onAction="#addItem" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: GREEN;" text="Add item" textFill="WHITE">
          <font>
             <Font size="20.0" />
