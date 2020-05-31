@@ -4,6 +4,7 @@ import ecoSolutionsShop.Account.ClientAccount;
 import ecoSolutionsShop.Account.ShopAccount;
 import ecoSolutionsShop.Data.DBMethods;
 import ecoSolutionsShop.Main;
+import ecoSolutionsShop.Model.ClothingType;
 import ecoSolutionsShop.Model.Status;
 import ecoSolutionsShop.View.UIControl.Controller;
 import ecoSolutionsShop.View.UIControl.windows;
@@ -41,8 +42,8 @@ public class NewOrderController implements Initializable, windows {
     @Override
     public void setScreenParent(Controller screenPage) {
         myController = screenPage;
-        clothingType_choiceBox.getItems().addAll(status.dirtyInShop,status.arrivedInCenter,status.inWashing,status.inDrying,status.inIroning,status.readyForTransport,status.readyInShop,status.completed);
-        clothingType_choiceBox.setValue(status.dirtyInShop);
+        clothingType_choiceBox.getItems().addAll(ClothingType.pants,ClothingType.dress,ClothingType.t_shirt,ClothingType.shirt,ClothingType.skirt,ClothingType.chef_suit,ClothingType.police_uniform,ClothingType.suit,ClothingType.jumpsuit,ClothingType.jacket,ClothingType.vest,ClothingType.blazer,ClothingType.coat);
+        //clothingType_choiceBox.setValue(ClothingType.pants);
     }
 
     @Override
@@ -94,6 +95,7 @@ public class NewOrderController implements Initializable, windows {
     public void addItem() {
         System.out.println(clothingType_choiceBox.getValue());
         int recentOrderID = dbMethods.selectMostRecentOrderIDForGivenEmail(clientAccount.getEmail());
+        System.out.println(recentOrderID + " controller");
         dbMethods.insertLaundryItem(itemDescription_textfield.getText(),recentOrderID,clothingType_choiceBox.getValue());
 
 
