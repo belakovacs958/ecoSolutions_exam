@@ -90,10 +90,10 @@ public class NewOrderController implements Initializable, windows {
     public void finishOrder() {
     }
 
+    //Adds a laundry item for a given email's latest order, if the order id textfield is filled then it adds the laundry item to that order
     public void addItem() {
         System.out.println(clothingType_choiceBox.getValue());
         int recentOrderID = dbMethods.selectMostRecentOrderIDForGivenEmail(clientAccount.getEmail());
-
         dbMethods.insertLaundryItem(itemDescription_textfield.getText(),recentOrderID,clothingType_choiceBox.getValue());
 
 
