@@ -7,34 +7,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-
-    /////////////////////////////Fields////////////////////////////////////////
-
-
-
 public class DBMethods {
 
     ////////////////////////////////////////fields////////////////////////////////////
-
-    
-    private String email;
     private String name;
     private String phoneNo;
-
-
     ////////////////////////////////////////objects///////////////////////////////////
-
-
-
-    ///////////////////////////////////////methods////////////////////////////////////
-
-
-
-
-    //////////////////////////////Objects///////////////////////////////////////
-
-
-
 
 
     //////////////////////////////Methods////////////////////////////////////////
@@ -43,13 +21,15 @@ public class DBMethods {
 
     }
 
+
+    //creates an order for a given email and attaches the shopID where the order ID was created
     public void insertOrder(String email, String shopID){
         try {
             PreparedStatement query = DBConnection.getConnect().prepareStatement("INSERT INTO tblOrder (fldEmail, fdlDeliveryPointID, fldOrderStatus) " +    // !!!fdlDeliveryPoint has a typo
                     "VALUES (?,?,?);");
             query.setString(1, email);
             query.setString(2, shopID);
-            query.setString(3, "dirtyInShop");
+            query.setString(3, Status.dirtyInShop);
             query.executeUpdate();
 
         }
@@ -59,20 +39,7 @@ public class DBMethods {
 
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    //selects a client with a given email address
     public void selectClient(String email) {
 
         try {
@@ -90,6 +57,8 @@ public class DBMethods {
 
     }
 
+
+    //inserts a laundry item with a given description , order id and a clothing type
     public void insertLaundryItem(String description, int orderID, String clothingTypeID) {
         try {
             PreparedStatement query = DBConnection.getConnect().prepareStatement("INSERT INTO tblLaundryItem (fldDescription, fldOrderID, fldClothingTypeID) " +
@@ -112,6 +81,8 @@ public class DBMethods {
 
     }
 
+
+    //select the latest order for a given email address
     public int selectMostRecentOrderIDForGivenEmail(String email) {
         int recentOrderID = 0;
         try {
@@ -146,6 +117,8 @@ public class DBMethods {
         return false;
     }
 
+
+    //This method inserts a client with with the given info in the ManageClient controller
     public void insertClient(String fullName, String email, String phoneNo) {
         try {
             PreparedStatement query = DBConnection.getConnect().prepareStatement("INSERT INTO tblCustomer (fldEmail, fldFullName, fldPhoneNo) " +
@@ -184,9 +157,6 @@ public class DBMethods {
   
 
 //////////////////////////////////////getters and setters/////////////////////////
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     public String getPhoneNo() {
         return phoneNo;

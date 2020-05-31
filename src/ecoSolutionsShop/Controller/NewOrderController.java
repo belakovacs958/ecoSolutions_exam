@@ -4,11 +4,13 @@ import ecoSolutionsShop.Account.ClientAccount;
 import ecoSolutionsShop.Account.ShopAccount;
 import ecoSolutionsShop.Data.DBMethods;
 import ecoSolutionsShop.Main;
+import ecoSolutionsShop.Model.Status;
 import ecoSolutionsShop.View.UIControl.Controller;
 import ecoSolutionsShop.View.UIControl.windows;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
@@ -23,6 +25,7 @@ public class NewOrderController implements Initializable, windows {
     ClientAccount clientAccount = new ClientAccount();
     DBMethods dbMethods = new DBMethods();
     ShopAccount shopAccount = new ShopAccount();
+    Status status = new Status();
 
 
     @FXML
@@ -31,10 +34,15 @@ public class NewOrderController implements Initializable, windows {
     @FXML
     private Label clientName_label;
 
+    @FXML
+    private ChoiceBox<String> clothingType_choiceBox;
+
 
     @Override
     public void setScreenParent(Controller screenPage) {
         myController = screenPage;
+        clothingType_choiceBox.getItems().addAll(status.dirtyInShop,status.arrivedInCenter,status.inWashing,status.inDrying,status.inIroning,status.readyForTransport,status.readyInShop,status.completed);
+        clothingType_choiceBox.setValue(status.dirtyInShop);
     }
 
     @Override
@@ -52,6 +60,10 @@ public class NewOrderController implements Initializable, windows {
 
         myController.setWindow(Main.windowId4);
     }
+
+
+
+
 //This method displays the client's name with the given email , if an account exists for that email.
 // Sets email variable for clientAccount object for the given value
     public void createOrder() {
@@ -78,11 +90,11 @@ public class NewOrderController implements Initializable, windows {
     public void finishOrder() {
     }
 
+    //Adds a laundry item for a given email's latest order, if the order id textfield is filled then it adds the laundry item to that order
     public void addItem() {
+        System.out.println(clothingType_choiceBox.getValue());
         int recentOrderID = dbMethods.selectMostRecentOrderIDForGivenEmail(clientAccount.getEmail());
-
-
-        dbMethods.insertLaundryItem(itemDescription_textfield.getText(),recentOrderID,"defaultClothingID");
+        dbMethods.insertLaundryItem(itemDescription_textfield.getText(),recentOrderID,clothingType_choiceBox.getValue());
 
 
     }
