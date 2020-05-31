@@ -12,6 +12,11 @@ public class DBMethods {
     ////////////////////////////////////////fields////////////////////////////////////
     private String name;
     private String phoneNo;
+    private String description = "";
+    private String itemStatus = "";
+    private String clothingTypeName = "";
+    private int laundryItemID = 0;
+
     ////////////////////////////////////////objects///////////////////////////////////
 
 
@@ -61,11 +66,12 @@ public class DBMethods {
     //inserts a laundry item with a given description , order id and a clothing type
     public void insertLaundryItem(String description, int orderID, String clothingTypeName) {
         try {
-            PreparedStatement query = DBConnection.getConnect().prepareStatement("INSERT INTO tblLaundryItem (fldDescription, fldOrderID, fldClothingTypeName) " +
-                    "VALUES (?,?,?);");
+            PreparedStatement query = DBConnection.getConnect().prepareStatement("INSERT INTO tblLaundryItem (fldDescription, fldOrderID, fldClothingTypeName,fldItemStatus) " +
+                    "VALUES (?,?,?,?);");
             query.setString(1, description);
             query.setInt(2, orderID);
-            query.setString(3,clothingTypeName); // clothing type ID must be an existing ID
+            query.setString(3,clothingTypeName);
+            query.setString(4,Status.dirtyInShop);
             query.executeUpdate();
 
         }
@@ -77,7 +83,21 @@ public class DBMethods {
 
     }
 
-    public void selectLaundryItem() {
+    public void selectLaundryItem(int orderID) {
+        try {
+            PreparedStatement query = DBConnection.getConnect().prepareStatement("SELECT * FROM tblLaundryItem WHERE fldOrderID = ?");
+            query.setInt(1, orderID);
+            ResultSet resultSet = query.executeQuery();
+            if (resultSet.next()) {
+                description = resultSet.getString(2);
+                itemStatus = resultSet.getString(5);
+                clothingTypeName = resultSet.getString(4);
+                laundryItemID = resultSet.getInt(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
 
     }
 
@@ -172,4 +192,19 @@ public class DBMethods {
         return name;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public String getItemStatus() {
+        return itemStatus;
+    }
+
+    public String getClothingTypeName() {
+        return clothingTypeName;
+    }
+
+    public int getLaundryItemID() {
+        return laundryItemID;
+    }
 }
