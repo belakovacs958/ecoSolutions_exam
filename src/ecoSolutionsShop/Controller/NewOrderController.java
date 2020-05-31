@@ -5,15 +5,17 @@ import ecoSolutionsShop.Account.ShopAccount;
 import ecoSolutionsShop.Data.DBMethods;
 import ecoSolutionsShop.Main;
 import ecoSolutionsShop.Model.ClothingType;
+import ecoSolutionsShop.Model.LaundryItem;
 import ecoSolutionsShop.Model.Status;
 import ecoSolutionsShop.View.UIControl.Controller;
 import ecoSolutionsShop.View.UIControl.windows;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -26,17 +28,34 @@ public class NewOrderController implements Initializable, windows {
     ClientAccount clientAccount = new ClientAccount();
     DBMethods dbMethods = new DBMethods();
     ShopAccount shopAccount = new ShopAccount();
-    Status status = new Status();
+    ObservableList<LaundryItem> laundryItems = FXCollections.observableArrayList();
+
+    int recentOrderID = 0;
 
 
     @FXML
-    private TextField clientEmail_textfield, itemDescription_textfield;
+    private TextField clientEmail_textfield, itemDescription_textfield, orderID_textfield;
 
     @FXML
     private Label clientName_label;
 
     @FXML
     private ChoiceBox<String> clothingType_choiceBox;
+
+    @FXML
+    private TableView <LaundryItem> tableView;
+
+    @FXML
+    private TableColumn<LaundryItem, String> description_column, itemStatus_column, clothingType_column;
+
+    @FXML
+    private TableColumn<LaundryItem, Integer> itemID_column;
+
+
+
+
+
+
 
 
     @Override
@@ -48,6 +67,10 @@ public class NewOrderController implements Initializable, windows {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        description_column.setCellValueFactory(new PropertyValueFactory<LaundryItem, String>("description"));
+        itemStatus_column.setCellValueFactory(new PropertyValueFactory<LaundryItem, String>("itemStatus"));
+        clothingType_column.setCellValueFactory(new PropertyValueFactory<LaundryItem, String>("clothingTypeName"));
+        itemID_column.setCellValueFactory(new PropertyValueFactory<LaundryItem, Integer>("laundryItemID"));
 
     }
 
@@ -91,13 +114,23 @@ public class NewOrderController implements Initializable, windows {
     public void finishOrder() {
     }
 
+
+    public LaundryItem getLaundryItem(){
+        return new LaundryItem(dbMethods.getDescription(),dbMethods.getLaundryItemID(),dbMethods.getItemStatus(),dbMethods.getClothingTypeName());
+    }
+
     //Adds a laundry item for a given email's latest order, if the order id textfield is filled then it adds the laundry item to that order
     public void addItem() {
-        System.out.println(clothingType_choiceBox.getValue());
-        int recentOrderID = dbMethods.selectMostRecentOrderIDForGivenEmail(clientAccount.getEmail());
-        System.out.println(recentOrderID + " controller");
-        dbMethods.insertLaundryItem(itemDescription_textfield.getText(),recentOrderID,clothingType_choiceBox.getValue());
-
+        if (!orderID_textfield.getText().equals("")){
+            dbMethods.insertLaundryItem(itemDescription_textfield.getText(),Integer.parseInt(orderID_textfield.getText()),clothingType_choiceBox.getValue());
+        }
+        else{
+            recentOrderID = dbMethods.selectMostRecentOrderIDForGivenEmail(clientAccount.getEmail());
+            dbMethods.insertLaundryItem(itemDescription_textfield.getText(),recentOrderID,clothingType_choiceBox.getValue());
+        }
+        dbMethods.selectLaundryItem(recentOrderID);
+        laundryItems.add(getLaundryItem());
+        tableView.setItems(laundryItems);
 
     }
 

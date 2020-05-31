@@ -2,9 +2,13 @@ package ecoSolutionsShop.Model;
 
 public class LaundryItem {
 
-    private String description, laundryItemID, orderID, itemStaus, clothingTypeName;
+    private String description, itemStatus, clothingTypeName;
+    private int laundryItemID;
 
-    public String createNewLaundryItem(){
-        return "";
+    public LaundryItem(String description, int laundryItemID, String itemStatus, String clothingTypeName) {
+        this.description = description;
+        this.laundryItemID = laundryItemID;
+        this.itemStatus = itemStatus;
+        this.clothingTypeName = clothingTypeName;
     }
 }

@@ -46,12 +46,12 @@
             <Font size="20.0" />
          </font>
       </Button>
-      <TableView layoutX="104.0" layoutY="306.0" prefHeight="658.0" prefWidth="760.0">
+      <TableView fx:id="tableView" layoutX="104.0" layoutY="306.0" prefHeight="658.0" prefWidth="760.0">
         <columns>
-          <TableColumn prefWidth="190.0" text="Description" />
-          <TableColumn prefWidth="190.0" text="Item status" />
-            <TableColumn prefWidth="190.0" text="Clothing type" />
-            <TableColumn prefWidth="190.0" text="Item ID" />
+          <TableColumn fx:id="description_column" prefWidth="190.0" text="Description" />
+          <TableColumn fx:id="itemStatus_column" prefWidth="190.0" text="Item status" />
+            <TableColumn fx:id="clothingType_column" prefWidth="190.0" text="Clothing type" />
+            <TableColumn fx:id="itemID_column" prefWidth="190.0" text="Item ID" />
         </columns>
       </TableView>
       <TextField fx:id="itemDescription_textfield" layoutX="1351.0" layoutY="306.0" prefHeight="40.0" prefWidth="370.0" promptText="Enter item description">
@@ -70,7 +70,7 @@
             <Font size="20.0" />
          </font>
       </Button>
-      <TextField layoutX="104.0" layoutY="252.0" prefHeight="40.0" prefWidth="370.0" promptText="Enter order ID">
+      <TextField fx:id="orderID_textfield" layoutX="104.0" layoutY="252.0" prefHeight="40.0" prefWidth="370.0" promptText="Enter order ID">
          <font>
             <Font size="20.0" />
          </font>
