@@ -25,7 +25,7 @@ public class DBMethods {
     //creates an order for a given email and attaches the shopID where the order ID was created
     public void insertOrder(String email, String shopID){
         try {
-            PreparedStatement query = DBConnection.getConnect().prepareStatement("INSERT INTO tblOrder (fldEmail, fdlDeliveryPointID, fldOrderStatus) " +    // !!!fdlDeliveryPoint has a typo
+            PreparedStatement query = DBConnection.getConnect().prepareStatement("INSERT INTO tblOrder (fldEmail, fdlShopID, fldOrderStatus) " +    // !!!fdlShopID has a typo
                     "VALUES (?,?,?);");
             query.setString(1, email);
             query.setString(2, shopID);
@@ -43,7 +43,7 @@ public class DBMethods {
     public void selectClient(String email) {
 
         try {
-            PreparedStatement query = DBConnection.getConnect().prepareStatement("SELECT * FROM tblCustomer WHERE fldEmail = ?");
+            PreparedStatement query = DBConnection.getConnect().prepareStatement("SELECT * FROM tblClient WHERE fldEmail = ?");
             query.setString(1, email);
             ResultSet resultSet = query.executeQuery();
             if (resultSet.next()) {
@@ -59,13 +59,13 @@ public class DBMethods {
 
 
     //inserts a laundry item with a given description , order id and a clothing type
-    public void insertLaundryItem(String description, int orderID, String clothingTypeID) {
+    public void insertLaundryItem(String description, int orderID, String clothingTypeName) {
         try {
-            PreparedStatement query = DBConnection.getConnect().prepareStatement("INSERT INTO tblLaundryItem (fldDescription, fldOrderID, fldClothingTypeID) " +
+            PreparedStatement query = DBConnection.getConnect().prepareStatement("INSERT INTO tblLaundryItem (fldDescription, fldOrderID, fldClothingTypeName) " +
                     "VALUES (?,?,?);");
             query.setString(1, description);
             query.setInt(2, orderID);
-            query.setString(3, clothingTypeID);
+            query.setString(3,clothingTypeName); // clothing type ID must be an existing ID
             query.executeUpdate();
 
         }
@@ -88,14 +88,20 @@ public class DBMethods {
         try {
             PreparedStatement query = DBConnection.getConnect().prepareStatement("select top 1 fldOrderID from tblOrder where fldEmail =? order by fldOrderID desc");
             query.setString(1, email);
-            query.executeQuery();
-            return recentOrderID;
+            ResultSet resultSet = query.executeQuery();
+            if (resultSet.next()) {
+                recentOrderID = resultSet.getInt(1);
+                return recentOrderID;
+
+            }
+
+
 
         }
         catch (SQLException e) {
             e.printStackTrace();
         }
-        return 0;
+        return recentOrderID;
 
     }
 
@@ -103,7 +109,7 @@ public class DBMethods {
     //checks if the given email is registered for a client in the database
     public boolean isEmailRegistered(String email){
         try {
-            PreparedStatement query = DBConnection.getConnect().prepareStatement("SELECT * FROM tblCustomer WHERE fldEmail = ? ");
+            PreparedStatement query = DBConnection.getConnect().prepareStatement("SELECT * FROM tblClient WHERE fldEmail = ? ");
             query.setString(1, email);
             ResultSet resultSet = query.executeQuery();
             if (resultSet.next()) {
@@ -121,7 +127,7 @@ public class DBMethods {
     //This method inserts a client with with the given info in the ManageClient controller
     public void insertClient(String fullName, String email, String phoneNo) {
         try {
-            PreparedStatement query = DBConnection.getConnect().prepareStatement("INSERT INTO tblCustomer (fldEmail, fldFullName, fldPhoneNo) " +
+            PreparedStatement query = DBConnection.getConnect().prepareStatement("INSERT INTO tblClient (fldEmail, fldFullName, fldPhoneNo) " +
                     "VALUES (?,?,?);");
                     query.setString(1, email);
                     query.setString(2, fullName);
@@ -139,7 +145,7 @@ public class DBMethods {
     //selects password from tblShop for a shopIS which is entered into the login form
     public boolean selectCredentials(String shopID, String password) {
         try {
-            PreparedStatement query = DBConnection.getConnect().prepareStatement("SELECT * FROM tblShop WHERE fldDeliveryPonintID = ? and fldPassword = ?"); //!!!!be careful there is a typo in the field name
+            PreparedStatement query = DBConnection.getConnect().prepareStatement("SELECT * FROM tblShop WHERE fldShopID = ? and fldPassword = ?"); //!!!!be careful there is a typo in the field name
             query.setString(1, shopID);
             query.setString(2, password);
             ResultSet resultSet = query.executeQuery();
