@@ -41,7 +41,7 @@
             <Font size="20.0" />
          </font>
       </Button>
-      <Button layoutX="104.0" layoutY="1010.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="145.0" style="-fx-background-color: GREEN;" text="Finish order" textFill="WHITE">
+      <Button fx:id="finishOrder_btn" layoutX="104.0" layoutY="1010.0" mnemonicParsing="false" onAction="#finishOrder" prefHeight="40.0" prefWidth="145.0" style="-fx-background-color: GREEN;" text="Finish order" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
