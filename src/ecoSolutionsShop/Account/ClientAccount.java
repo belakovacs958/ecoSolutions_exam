@@ -2,7 +2,7 @@ package ecoSolutionsShop.Account;
 
 public class ClientAccount {
 
-    private String email;
+    public static String email;
 
     public void setEmail(String email) {
         this.email = email;

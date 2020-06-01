@@ -17,34 +17,25 @@ import java.util.ResourceBundle;
 
 public class ManageClientController implements Initializable, windows {
 
-    ////////////////////////////////////////fields//////////////////////////////////
-
-    private String clientEmail;
 
     ////////////////////////////////////////objects///////////////////////////////////
 
     Controller myController;
     DBMethods dbMethods = new DBMethods();
 
+    ////////////////////////////////////////fields//////////////////////////////////
+
+
+
     ///////////////////////////////////////FXML///////////////////////////////////////
-
-
-
 
     @FXML
     private TextField clientID_textfield, clientName_textfield, clientEmail_textfield, clientPhone_textfield;
 
     @FXML
     private Label clientName_label, clientEmail_label, clientPhone_label, successMessage_label, errorMessage_label;
-    
-    @FXML
-    private Button registerClient_btn;
 
-
-
-
-
-
+    //////////////////////////////////////////override///////////////////////////////////////////
 
     @Override
     public void setScreenParent(Controller screenPage) {
@@ -101,7 +92,6 @@ public class ManageClientController implements Initializable, windows {
 
     public void go() {
         dbMethods.selectClient(clientID_textfield.getText());
-
         displayClientDetails();
     }
 }
