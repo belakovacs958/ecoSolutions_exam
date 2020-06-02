@@ -12,10 +12,10 @@ public class DBMethods {
     ////////////////////////////////////////fields////////////////////////////////////
     private String name;
     private String phoneNo;
-    private String description;
-    private String itemStatus;
-    private String clothingTypeName;
-    private int laundryItemID;
+    private String description = "";
+    private String itemStatus = "";
+    private String clothingTypeName = "";
+    private int laundryItemID = 0;
 
     ////////////////////////////////////////objects///////////////////////////////////
 

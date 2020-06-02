@@ -35,7 +35,7 @@ public class NewOrderController implements Initializable, windows {
 
     ////////////////////////////////////////fields////////////////////////////////////
 
-    int recentOrderID;
+    int recentOrderID = 0;
     private String description = dbMethods.getDescription();
     private String itemStatus = dbMethods.getItemStatus();
     private String clothingTypeName = dbMethods.getClothingTypeName();
