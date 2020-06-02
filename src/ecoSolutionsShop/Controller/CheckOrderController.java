@@ -1,10 +1,19 @@
 package ecoSolutionsShop.Controller;
 
+import ecoSolutionsShop.Data.DBMethods;
 import ecoSolutionsShop.Main;
+import ecoSolutionsShop.Model.LaundryItem;
 import ecoSolutionsShop.View.UIControl.Controller;
 import ecoSolutionsShop.View.UIControl.windows;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -12,11 +21,32 @@ import java.util.ResourceBundle;
 public class CheckOrderController implements Initializable, windows {
 
     Controller myController;
-    private String itemID;
-    private String description;
-    private String clothingType;
-    private String itemStatus;
-    private String orderStatus;
+
+    private DBMethods dbMethods = new DBMethods();
+
+
+    public static ObservableList<LaundryItem> laundryItems = FXCollections.observableArrayList();
+    private String itemID = "";
+
+    private String description = dbMethods.getDescription();
+    private String itemStatus = dbMethods.getItemStatus();
+    private String clothingTypeName = dbMethods.getClothingTypeName();
+    private int laundryItemID = dbMethods.getLaundryItemID();
+
+
+    @FXML
+    private TextField itemID_textfield;
+
+    @FXML
+    private TableView<LaundryItem> order_tableview;
+    @FXML
+    private TableColumn<LaundryItem, String> description_column;
+    @FXML
+    private TableColumn<LaundryItem, String> itemStatus_column;
+    @FXML
+    private TableColumn<LaundryItem, String> clothingType_column;
+    @FXML
+    private TableColumn<LaundryItem, Integer> itemID_column;
 
     @Override
     public void setScreenParent(Controller screenPage) {
@@ -25,15 +55,20 @@ public class CheckOrderController implements Initializable, windows {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        //these are the columns in the table view
+        description_column.setCellValueFactory(new PropertyValueFactory<LaundryItem, String>("description"));
+        itemStatus_column.setCellValueFactory(new PropertyValueFactory<LaundryItem, String>("itemStatus"));
+        clothingType_column.setCellValueFactory(new PropertyValueFactory<LaundryItem, String>("clothingTypeName"));
+        itemID_column.setCellValueFactory(new PropertyValueFactory<LaundryItem, Integer>("laundryItemID"));
 
     }
 
-    // set the Manage Client window
+    // sets the Manage Client window
     public void goToManageClient(ActionEvent actionEvent) {
         myController.setWindow(Main.windowId3);
     }
 
-    // set the Create the New Order window
+    // sets the Create the New Order window
     public void goToCreateNewOrder(ActionEvent actionEvent) {
         myController.setWindow(Main.windowId2);
     }
@@ -42,11 +77,17 @@ public class CheckOrderController implements Initializable, windows {
     }
 
     public void displayLaundryItems() {
+
     }
 
     public void displayOrderStatus() {
     }
 
     public void go() {
+        itemID = itemID_textfield.getText();
+        dbMethods.selectLaundryItems(Integer.parseInt(itemID));
+        order_tableview.setItems(laundryItems);
+
+
     }
 }

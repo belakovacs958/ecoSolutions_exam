@@ -32,4 +32,20 @@ public class LaundryItem {
     public int getLaundryItemID() {
         return laundryItemID;
     }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setItemStatus(String itemStatus) {
+        this.itemStatus = itemStatus;
+    }
+
+    public void setClothingTypeName(String clothingTypeName) {
+        this.clothingTypeName = clothingTypeName;
+    }
+
+    public void setLaundryItemID(int laundryItemID) {
+        this.laundryItemID = laundryItemID;
+    }
 }
