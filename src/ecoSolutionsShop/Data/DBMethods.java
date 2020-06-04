@@ -118,9 +118,6 @@ public class DBMethods {
         catch (SQLException e) {
             e.printStackTrace();
         }
-
-
-
     }
 
     /**
@@ -286,6 +283,32 @@ public class DBMethods {
             e.printStackTrace();
         }
         return sum;
+    }
+    public void updateOrderStatus(int  itemID, String orderStatus){
+        try {
+            PreparedStatement query = DBConnection.getConnect().prepareStatement("update tblOrder \n" +
+                    "set fldOrderStatus = ? \n" +
+                    "where fldOrderID = (select fldOrderID from tblLaundryItem where fldLaundryItemID = ?)");
+            query.setString(1, orderStatus);
+            query.setInt(2, itemID);
+            query.executeUpdate();
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public void updateItemStatus(int  itemID, String itemStatus){
+        try {
+            PreparedStatement query = DBConnection.getConnect().prepareStatement("update tblLaundryItem\n" +
+                    "set fldItemStatus = ? \n" +
+                    "where fldLaundryItemID = ? ");
+            query.setString(1, itemStatus);
+            query.setInt(2, itemID);
+            query.executeUpdate();
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 //////////////////////////////////////getters and setters/////////////////////////
 
