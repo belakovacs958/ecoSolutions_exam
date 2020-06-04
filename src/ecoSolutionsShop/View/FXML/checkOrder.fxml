@@ -53,17 +53,17 @@
                 <Font size="20.0" />
             </font>
         </Label>
-        <Label layoutX="104.0" layoutY="306.0" text="Description: ">
+        <Label fx:id="description_label" layoutX="104.0" layoutY="306.0" text="Description: ">
             <font>
                 <Font size="20.0" />
             </font>
         </Label>
-        <Label layoutX="104.0" layoutY="336.0" text="Clothing type:">
+        <Label fx:id="clothingType_label" layoutX="104.0" layoutY="336.0" text="Clothing type:">
             <font>
                 <Font size="20.0" />
             </font>
         </Label>
-        <Label layoutX="104.0" layoutY="366.0" text="Item ID:">
+        <Label fx:id="itemID_label" layoutX="104.0" layoutY="366.0" text="Item ID:">
             <font>
                 <Font size="20.0" />
             </font>
@@ -78,12 +78,12 @@
                 <Font size="20.0" />
             </font>
         </Label>
-        <Label layoutX="220.0" layoutY="443.0" text="Completed" textFill="#00bc16">
+        <Label fx:id="orderStatus_label" layoutX="220.0" layoutY="443.0" textFill="#00dd07">
             <font>
                 <Font size="30.0" />
             </font>
         </Label>
-        <Label layoutX="220.0" layoutY="406.0" text="Completed" textFill="#00dd07">
+        <Label fx:id="itemStatus_label" layoutX="220.0" layoutY="406.0" textFill="#00dd07">
             <font>
                 <Font size="30.0" />
             </font>

@@ -36,7 +36,7 @@
             <Font size="20.0" />
          </font>
       </TextField>
-      <Button fx:id="go_btn" layoutX="526.0" layoutY="200.0" mnemonicParsing="false" onAction="#go" prefHeight="40.0" prefWidth="100.0" text="GO">
+      <Button fx:id="go_btn" layoutX="526.0" layoutY="200.0" mnemonicParsing="false" onAction="#go" prefHeight="40.0" prefWidth="100.0" text="CREATE">
          <font>
             <Font size="20.0" />
          </font>
@@ -65,15 +65,5 @@
             <Font size="20.0" />
          </font>
       </Button>
-      <Button layoutX="526.0" layoutY="252.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="GO">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
-      <TextField fx:id="orderID_textfield" layoutX="104.0" layoutY="252.0" prefHeight="40.0" prefWidth="370.0" promptText="Enter order ID">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </TextField>
    </children>
 </AnchorPane>

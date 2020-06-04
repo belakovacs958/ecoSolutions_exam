@@ -18,6 +18,7 @@ public class DBMethods {
     private String description = "";
     private String itemStatus = "";
     private String clothingTypeName = "";
+    private String orderStatus = "";
     private int laundryItemID = 0;
 
     ////////////////////////////////////////objects///////////////////////////////////
@@ -284,32 +285,70 @@ public class DBMethods {
         }
         return sum;
     }
-    public void updateOrderStatus(int  itemID, String orderStatus){
+    public void updateOrderStatus(int laundryItemID, String orderStatus){
         try {
             PreparedStatement query = DBConnection.getConnect().prepareStatement("update tblOrder \n" +
                     "set fldOrderStatus = ? \n" +
                     "where fldOrderID = (select fldOrderID from tblLaundryItem where fldLaundryItemID = ?)");
             query.setString(1, orderStatus);
-            query.setInt(2, itemID);
+            query.setInt(2, laundryItemID);
             query.executeUpdate();
         }
         catch (SQLException e) {
             e.printStackTrace();
         }
     }
-    public void updateItemStatus(int  itemID, String itemStatus){
+    public void updateItemStatus(int laundryItemID, String itemStatus){
         try {
             PreparedStatement query = DBConnection.getConnect().prepareStatement("update tblLaundryItem\n" +
                     "set fldItemStatus = ? \n" +
                     "where fldLaundryItemID = ? ");
             query.setString(1, itemStatus);
-            query.setInt(2, itemID);
+            query.setInt(2, laundryItemID);
             query.executeUpdate();
         }
         catch (SQLException e) {
             e.printStackTrace();
         }
     }
+
+    public void selectLaundryItemDetails( int laundryItemID){
+        try {
+            PreparedStatement query = DBConnection.getConnect().prepareStatement("select * from tblLaundryItem where fldLaundryItemID = ? ");
+            query.setInt(1, laundryItemID);
+            ResultSet resultSet = query.executeQuery();
+            if (resultSet.next()) {
+                description = resultSet.getString(2);
+                itemStatus = resultSet.getString(5);
+                clothingTypeName = resultSet.getString(4);
+                laundryItemID = resultSet.getInt(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public void selectOrderStatus(int laundryItemID){
+        try {
+            PreparedStatement query = DBConnection.getConnect().prepareStatement("SELECT fldOrderStatus \n" +
+                    "FROM tblOrder \n" +
+                    "WHERE fldOrderID IN (SELECT fldOrderID FROM tblLaundryItem WHERE fldLaundryItemID = ?) ");
+            query.setInt(1, laundryItemID);
+            ResultSet resultSet = query.executeQuery();
+            if (resultSet.next()) {
+                orderStatus = resultSet.getString(1);
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
+
+
+
+
 //////////////////////////////////////getters and setters/////////////////////////
 
     public String getPhoneNo() {
@@ -331,6 +370,8 @@ public class DBMethods {
     public String getClothingTypeName() {
         return clothingTypeName;
     }
+
+    public String getOrderStatus() {return orderStatus;}
 
     public int getLaundryItemID() {
         return laundryItemID;

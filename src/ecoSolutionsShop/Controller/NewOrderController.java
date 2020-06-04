@@ -73,6 +73,7 @@ public class NewOrderController implements Initializable, windows {
         clothingType_choiceBox.getItems().addAll(ClothingType.pants,ClothingType.dress,ClothingType.t_shirt,ClothingType.shirt,
                 ClothingType.skirt,ClothingType.chef_suit,ClothingType.police_uniform,ClothingType.suit,ClothingType.jumpsuit,
                 ClothingType.jacket,ClothingType.vest,ClothingType.blazer,ClothingType.coat);
+        clothingType_choiceBox.setValue(ClothingType.pants);
 
         //these are the columns in the table view
         description_column.setCellValueFactory(new PropertyValueFactory<LaundryItem, String>("description"));

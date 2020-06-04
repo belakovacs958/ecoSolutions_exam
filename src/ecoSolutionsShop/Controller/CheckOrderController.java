@@ -11,10 +11,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
@@ -38,7 +35,8 @@ public class CheckOrderController implements Initializable, windows {
 
     @FXML
     private TextField itemID_textfield;
-
+    @FXML
+    private Label description_label,clothingType_label,itemID_label,itemStatus_label,orderStatus_label;
     @FXML
     private TableView<LaundryItem> order_tableview;
     @FXML
@@ -96,9 +94,19 @@ public class CheckOrderController implements Initializable, windows {
     }
 
     public void go() {
+        order_tableview.getItems().clear();
         itemID = itemID_textfield.getText();
         dbMethods.selectLaundryItems(Integer.parseInt(itemID));
         order_tableview.setItems(laundryItems);
+        dbMethods.selectLaundryItemDetails(Integer.parseInt(itemID));
+        dbMethods.selectOrderStatus(Integer.parseInt(itemID));
+        description_label.setText("Description: " + dbMethods.getDescription());
+        itemID_label.setText("Item ID: " + itemID_textfield.getText());
+        clothingType_label.setText("Clothing type: " + dbMethods.getClothingTypeName());
+        itemStatus_label.setText(dbMethods.getItemStatus());
+        orderStatus_label.setText(dbMethods.getOrderStatus());
+
+
 
 
     }
@@ -107,5 +115,6 @@ public class CheckOrderController implements Initializable, windows {
         itemID = itemID_textfield.getText();
         dbMethods.updateOrderStatus(Integer.parseInt(itemID), orderStatus_choiceBox.getValue());
         dbMethods.updateItemStatus(Integer.parseInt(itemID), itemStatus_choiceBox.getValue());
+
     }
 }
