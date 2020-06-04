@@ -7,6 +7,7 @@ import ecoSolutionsShop.Main;
 import ecoSolutionsShop.Model.ClothingType;
 import ecoSolutionsShop.Model.LaundryItem;
 import ecoSolutionsShop.Services.Invoice;
+import ecoSolutionsShop.Services.QRCode;
 import ecoSolutionsShop.View.UIControl.Controller;
 import ecoSolutionsShop.View.UIControl.windows;
 import javafx.collections.FXCollections;
@@ -31,6 +32,7 @@ public class NewOrderController implements Initializable, windows {
     ShopAccount shopAccount = new ShopAccount();
     ObservableList<LaundryItem> laundryItems = FXCollections.observableArrayList();
     Invoice invoice = new Invoice();
+    QRCode qrCode = new QRCode();
 
 
     ////////////////////////////////////////fields////////////////////////////////////
@@ -73,6 +75,7 @@ public class NewOrderController implements Initializable, windows {
         clothingType_choiceBox.getItems().addAll(ClothingType.pants,ClothingType.dress,ClothingType.t_shirt,ClothingType.shirt,
                 ClothingType.skirt,ClothingType.chef_suit,ClothingType.police_uniform,ClothingType.suit,ClothingType.jumpsuit,
                 ClothingType.jacket,ClothingType.vest,ClothingType.blazer,ClothingType.coat);
+        clothingType_choiceBox.setValue(ClothingType.pants);
 
         //these are the columns in the table view
         description_column.setCellValueFactory(new PropertyValueFactory<LaundryItem, String>("description"));
@@ -106,6 +109,7 @@ public class NewOrderController implements Initializable, windows {
 
         dbMethods.selectClient(clientEmail_textfield.getText());
 
+
         if (dbMethods.isEmailRegistered(clientEmail_textfield.getText())==true){
             clientName_label.setText("The order is created to " + dbMethods.getName()+ "'s account! Put in laundry items");
             dbMethods.insertOrder(clientEmail_textfield.getText(),shopAccount.getShopID());
@@ -124,16 +128,13 @@ public class NewOrderController implements Initializable, windows {
 
     //Adds a laundry item for a given email's latest order, if the order id textfield is filled then it adds the laundry item to that order
     public void addItem() {
-        if (!orderID_textfield.getText().equals("")){
-            dbMethods.insertLaundryItem(itemDescription_textfield.getText(),Integer.parseInt(orderID_textfield.getText()),clothingType_choiceBox.getValue());
-        }
-        else{
-            recentOrderID = dbMethods.selectMostRecentOrderIDForGivenEmail(clientAccount.getEmail());
-            dbMethods.insertLaundryItem(itemDescription_textfield.getText(),recentOrderID,clothingType_choiceBox.getValue());
-        }
+        recentOrderID = dbMethods.selectMostRecentOrderIDForGivenEmail(clientAccount.getEmail());
+        dbMethods.insertLaundryItem(itemDescription_textfield.getText(),recentOrderID,clothingType_choiceBox.getValue());
+
         dbMethods.selectLaundryItem(recentOrderID);
         laundryItems.add(getLaundryItem());
         tableView.setItems(laundryItems);
+        qrCode.generateQRCode(dbMethods.getLaundryItemID());
     }
 
     //this is the button which initiates the createOrder() method
@@ -147,5 +148,9 @@ public class NewOrderController implements Initializable, windows {
     public void finishOrder() {
         invoice.writeFile(dbMethods.selectTotal(recentOrderID),recentOrderID,dbMethods.getName(),
                 dbMethods.selectShop(recentOrderID),ClientAccount.email);
+        tableView.getItems().clear();
+        itemDescription_textfield.setText("");
+        clothingType_choiceBox.setValue(ClothingType.pants);
+
     }
 }
