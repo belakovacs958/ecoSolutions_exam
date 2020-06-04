@@ -46,7 +46,7 @@
             <Font size="20.0" />
          </font>
       </Button>
-      <TableView fx:id="tableView" layoutX="104.0" layoutY="306.0" prefHeight="658.0" prefWidth="760.0">
+      <TableView fx:id="tableView" layoutX="104.0" layoutY="306.0" prefHeight="658.0" prefWidth="760.0" stylesheets="@../CSS/tableView.css">
         <columns>
           <TableColumn fx:id="description_column" prefWidth="190.0" text="Description" />
           <TableColumn fx:id="itemStatus_column" prefWidth="190.0" text="Item status" />
@@ -59,8 +59,8 @@
             <Font size="20.0" />
          </font>
       </TextField>
-      <ChoiceBox fx:id="clothingType_choiceBox" layoutX="1349.0" layoutY="455.0" prefHeight="40.0" prefWidth="370.0" />
-      <Button fx:id="addItem_btn" layoutX="1349.0" layoutY="1010.0" mnemonicParsing="false" onAction="#addItem" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: GREEN;" text="Add item" textFill="WHITE">
+      <ChoiceBox fx:id="clothingType_choiceBox" layoutX="1351.0" layoutY="455.0" prefHeight="40.0" prefWidth="370.0" />
+      <Button fx:id="addItem_btn" layoutX="1541.0" layoutY="1010.0" mnemonicParsing="false" onAction="#addItem" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: GREEN;" text="Add item" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
