@@ -8,16 +8,10 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecoSolutionsShop.Controller.CheckOrderController">
     <children>
-        <ChoiceBox layoutX="1478.0" layoutY="496.0" prefHeight="40.0" prefWidth="370.0" />
-        <Text layoutX="1488.0" layoutY="526.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Set order status">
-            <font>
-                <Font size="20.0" />
-            </font>
-        </Text>
+        <ChoiceBox fx:id="orderStatus_choiceBox" layoutX="1478.0" layoutY="496.0" prefHeight="40.0" prefWidth="370.0" />
         <TableView fx:id="order_tableview" layoutX="104.0" layoutY="495.0" prefHeight="563.0" prefWidth="760.0">
             <columns>
                 <TableColumn fx:id="description_column" prefWidth="190.0" text="Description" />
@@ -53,12 +47,7 @@
                 <Font size="40.0" />
             </font>
         </Button>
-        <ChoiceBox layoutX="1041.0" layoutY="496.0" prefHeight="40.0" prefWidth="370.0" />
-        <Text layoutX="1051.0" layoutY="526.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Set item status">
-            <font>
-                <Font size="20.0" />
-            </font>
-        </Text>
+        <ChoiceBox fx:id="itemStatus_choiceBox" layoutX="1041.0" layoutY="496.0" prefHeight="40.0" prefWidth="370.0" />
         <Label layoutX="104.0" layoutY="276.0" text="Item details:">
             <font>
                 <Font size="20.0" />
@@ -99,5 +88,10 @@
                 <Font size="30.0" />
             </font>
         </Label>
+      <Button fx:id="set_btn" layoutX="1748.0" layoutY="1014.0" mnemonicParsing="false" onAction="#setStatuses" prefHeight="40.0" prefWidth="100.0" text="Set">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>

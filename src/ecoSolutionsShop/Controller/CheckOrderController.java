@@ -3,6 +3,7 @@ package ecoSolutionsShop.Controller;
 import ecoSolutionsShop.Data.DBMethods;
 import ecoSolutionsShop.Main;
 import ecoSolutionsShop.Model.LaundryItem;
+import ecoSolutionsShop.Model.Status;
 import ecoSolutionsShop.View.UIControl.Controller;
 import ecoSolutionsShop.View.UIControl.windows;
 import javafx.collections.FXCollections;
@@ -10,6 +11,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -47,6 +49,8 @@ public class CheckOrderController implements Initializable, windows {
     private TableColumn<LaundryItem, String> clothingType_column;
     @FXML
     private TableColumn<LaundryItem, Integer> itemID_column;
+    @FXML
+    private ChoiceBox<String> itemStatus_choiceBox, orderStatus_choiceBox;
 
     @Override
     public void setScreenParent(Controller screenPage) {
@@ -55,6 +59,14 @@ public class CheckOrderController implements Initializable, windows {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        //this fills the choice boxes
+        itemStatus_choiceBox.getItems().addAll(Status.dirtyInShop,Status.arrivedInCenter,Status.inWashing,Status.inDrying,
+                Status.inIroning,Status.readyForTransport,Status.readyInShop,Status.completed);
+        itemStatus_choiceBox.setValue(Status.dirtyInShop);
+        orderStatus_choiceBox.getItems().addAll(Status.dirtyInShop,Status.arrivedInCenter,Status.inWashing,Status.inDrying,
+                Status.inIroning,Status.readyForTransport,Status.readyInShop,Status.completed);
+        orderStatus_choiceBox.setValue(Status.dirtyInShop);
+
         //these are the columns in the table view
         description_column.setCellValueFactory(new PropertyValueFactory<LaundryItem, String>("description"));
         itemStatus_column.setCellValueFactory(new PropertyValueFactory<LaundryItem, String>("itemStatus"));
@@ -89,5 +101,11 @@ public class CheckOrderController implements Initializable, windows {
         order_tableview.setItems(laundryItems);
 
 
+    }
+
+    public void setStatuses(){
+        itemID = itemID_textfield.getText();
+        dbMethods.updateOrderStatus(Integer.parseInt(itemID), orderStatus_choiceBox.getValue());
+        dbMethods.updateItemStatus(Integer.parseInt(itemID), itemStatus_choiceBox.getValue());
     }
 }
