@@ -8,7 +8,7 @@ public class Status {
     public final static String inDrying = "In drying";
     public final static String inIroning = "In ironing";
     public final static String readyForTransport = "Ready for transport";
-    public final static String readyInShop = "Ready in shop";
+    public final static String cleanInShop = "Clean in shop";
     public final static String completed = "Completed";
 
     }
