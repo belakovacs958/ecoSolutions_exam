@@ -244,7 +244,7 @@ public class DBMethods {
     //selects password from tblShop for a shopIS which is entered into the login form
     public boolean selectCredentials(String shopID, String password) {
         try {
-            PreparedStatement query = DBConnection.getConnect().prepareStatement("SELECT * FROM tblShop WHERE fldShopID = ? and fldPassword = ?"); //!!!!be careful there is a typo in the field name
+            PreparedStatement query = DBConnection.getConnect().prepareCall("{call selectCredentials(?,?) }");
             query.setString(1, shopID);
             query.setString(2, password);
             ResultSet resultSet = query.executeQuery();
