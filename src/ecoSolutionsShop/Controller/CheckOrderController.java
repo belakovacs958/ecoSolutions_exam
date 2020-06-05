@@ -58,11 +58,9 @@ public class CheckOrderController implements Initializable, windows {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //this fills the choice boxes
-        itemStatus_choiceBox.getItems().addAll(Status.dirtyInShop,Status.arrivedInCenter,Status.inWashing,Status.inDrying,
-                Status.inIroning,Status.readyForTransport,Status.readyInShop,Status.completed);
+        itemStatus_choiceBox.getItems().addAll(Status.dirtyInShop,Status.cleanInShop,Status.completed);
         itemStatus_choiceBox.setValue(Status.dirtyInShop);
-        orderStatus_choiceBox.getItems().addAll(Status.dirtyInShop,Status.arrivedInCenter,Status.inWashing,Status.inDrying,
-                Status.inIroning,Status.readyForTransport,Status.readyInShop,Status.completed);
+        orderStatus_choiceBox.getItems().addAll(Status.dirtyInShop,Status.cleanInShop,Status.completed);
         orderStatus_choiceBox.setValue(Status.dirtyInShop);
 
         //these are the columns in the table view

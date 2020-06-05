@@ -16,10 +16,10 @@ public class Invoice {
         try{
             file = new Formatter("C:/Users/KendeSzabo/IdeaProjects/ecoSolutions_exam/src/ecoSolutionsShop/Services/invoices/" + orderID + ".txt");
             System.out.println(orderID + "invoice");
-            file.format(String.valueOf(sum));
-            file.format(name);
-            file.format(shopName);
-            file.format(email);
+            file.format("Total " + String.valueOf(sum) + " kr    ");
+            file.format("Client name: " + name + "    ");
+            file.format("Shop name: " + shopName + "    ");
+            file.format("Client email: " + email + "    ");
             file.close();
         }
         catch (Exception e){
