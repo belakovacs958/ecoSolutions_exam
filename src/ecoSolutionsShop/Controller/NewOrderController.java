@@ -151,6 +151,7 @@ public class NewOrderController implements Initializable, windows {
         tableView.getItems().clear();
         itemDescription_textfield.setText("");
         clothingType_choiceBox.setValue(ClothingType.pants);
+        clientName_label.setText("");
 
     }
 }
