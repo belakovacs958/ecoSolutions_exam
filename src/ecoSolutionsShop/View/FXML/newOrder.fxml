@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../CSS/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecoSolutionsShop.Controller.NewOrderController">
+<AnchorPane fx:id="pane" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../CSS/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecoSolutionsShop.Controller.NewOrderController">
    <children>
-      <Button mnemonicParsing="false" prefHeight="110.0" prefWidth="640.0" style="-fx-background-color: C4C4C4;" text="Create new order">
+      <Button fx:id="createNewOrder_btn" mnemonicParsing="false" prefHeight="110.0" prefWidth="640.0" text="Create new order">
          <font>
             <Font size="40.0" />
          </font>
@@ -26,7 +26,7 @@
             <Font size="40.0" />
          </font>
       </Button>
-      <Label fx:id="clientName_label" layoutX="104.0" layoutY="130.0" textFill="#00bc16">
+      <Label fx:id="clientName_label" layoutX="104.0" layoutY="130.0" textFill="#38967a">
          <font>
             <Font size="40.0" />
          </font>
@@ -36,12 +36,12 @@
             <Font size="20.0" />
          </font>
       </TextField>
-      <Button fx:id="go_btn" layoutX="526.0" layoutY="200.0" mnemonicParsing="false" onAction="#go" prefHeight="40.0" prefWidth="100.0" text="CREATE">
+      <Button fx:id="go_btn" layoutX="526.0" layoutY="200.0" mnemonicParsing="false" onAction="#go" prefHeight="40.0" prefWidth="100.0" stylesheets="@../CSS/button.css" text="CREATE">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button fx:id="finishOrder_btn" layoutX="104.0" layoutY="1010.0" mnemonicParsing="false" onAction="#finishOrder" prefHeight="40.0" prefWidth="145.0" style="-fx-background-color: GREEN;" text="Finish order" textFill="WHITE">
+      <Button fx:id="finishOrder_btn" layoutX="104.0" layoutY="1010.0" mnemonicParsing="false" onAction="#finishOrder" prefHeight="40.0" prefWidth="145.0" stylesheets="@../CSS/button.css" text="Finish order" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
@@ -60,7 +60,7 @@
          </font>
       </TextField>
       <ChoiceBox fx:id="clothingType_choiceBox" layoutX="1351.0" layoutY="455.0" prefHeight="40.0" prefWidth="370.0" />
-      <Button fx:id="addItem_btn" layoutX="1541.0" layoutY="1010.0" mnemonicParsing="false" onAction="#addItem" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: GREEN;" text="Add item" textFill="WHITE">
+      <Button fx:id="addItem_btn" layoutX="1541.0" layoutY="1010.0" mnemonicParsing="false" onAction="#addItem" prefHeight="40.0" prefWidth="180.0" stylesheets="@../CSS/button.css" text="Add item" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>

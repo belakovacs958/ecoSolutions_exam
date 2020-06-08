@@ -6,14 +6,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecoSolutionsShop.Controller.ManageClientController">
+<AnchorPane fx:id="pane" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../CSS/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecoSolutionsShop.Controller.ManageClientController">
    <children>
       <Button fx:id="manageW_COBtn" layoutX="1280.0" mnemonicParsing="false" onAction="#goToCheckOrder" prefHeight="110.0" prefWidth="640.0" text="Check order">
          <font>
             <Font size="40.0" />
          </font>
       </Button>
-      <Button layoutX="640.0" mnemonicParsing="false" prefHeight="110.0" prefWidth="640.0" style="-fx-background-color: c4c4c4;" text="Manage client">
+      <Button layoutX="640.0" mnemonicParsing="false" prefHeight="110.0" prefWidth="640.0" text="Manage client">
          <font>
             <Font size="40.0" />
          </font>
@@ -23,12 +23,12 @@
             <Font size="40.0" />
          </font>
       </Button>
-      <Button fx:id="go_btn_mw" layoutX="526.0" layoutY="233.0" mnemonicParsing="false" onAction="#go" prefHeight="40.0" prefWidth="100.0" text="GO">
+      <Button fx:id="go_btn_mw" layoutX="526.0" layoutY="200.0" mnemonicParsing="false" onAction="#go" prefHeight="40.0" prefWidth="100.0" stylesheets="@../CSS/button.css" text="GO">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <TextField fx:id="clientID_textfield" layoutX="104.0" layoutY="233.0" prefHeight="40.0" prefWidth="370.0" promptText="Enter client email">
+      <TextField fx:id="clientID_textfield" layoutX="104.0" layoutY="200.0" prefHeight="40.0" prefWidth="370.0" promptText="Enter client email">
          <font>
             <Font size="20.0" />
          </font>
@@ -63,12 +63,12 @@
             <Font size="20.0" />
          </font>
       </TextField>
-      <Button fx:id="registerClient_btn" layoutX="1351.0" layoutY="571.0" mnemonicParsing="false" onAction="#registerClient" prefHeight="40.0" prefWidth="180.0" text="Register client">
+      <Button fx:id="registerClient_btn" layoutX="1351.0" layoutY="571.0" mnemonicParsing="false" onAction="#registerClient" prefHeight="40.0" prefWidth="180.0" stylesheets="@../CSS/button.css" text="Register client">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Label fx:id="successMessage_label" layoutX="1351.0" layoutY="520.0" text=" " textFill="#0b8600">
+      <Label fx:id="successMessage_label" layoutX="1351.0" layoutY="520.0" text=" " textFill="#38967a">
          <font>
             <Font size="20.0" />
          </font>
