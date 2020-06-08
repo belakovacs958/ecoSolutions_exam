@@ -140,6 +140,7 @@ public class NewOrderController implements Initializable, windows {
     //this is the button which initiates the createOrder() method
     public void go() {
         createOrder();
+        tableView.getItems().clear();
 
     }
 
