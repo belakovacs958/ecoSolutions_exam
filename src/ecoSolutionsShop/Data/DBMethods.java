@@ -8,7 +8,6 @@ import ecoSolutionsShop.Model.Status;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.SQLOutput;
 
 public class DBMethods {
 
@@ -143,6 +142,7 @@ public class DBMethods {
 
 
     public void selectLaundryItems(int itemID){
+
         try {
             PreparedStatement query = DBConnection.getConnect().prepareStatement("SELECT * \n" +
                     "  FROM tblLaundryItem \n" +
@@ -152,12 +152,8 @@ public class DBMethods {
             query.setInt(1, itemID);
             ResultSet resultSet = query.executeQuery();
             while(resultSet.next()){
-                System.out.println(resultSet.getString(2)+resultSet.getInt(1)+
-                        resultSet.getString(5)+resultSet.getString(4));
                 CheckOrderController.laundryItems.add(new LaundryItem(resultSet.getString(2),resultSet.getInt(1),
                         resultSet.getString(5),resultSet.getString(4)));
-                //System.out.println(CheckOrderController.laundryItems.get() + "  list");
-
             }
         } catch (SQLException e) {
             e.printStackTrace();
