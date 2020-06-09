@@ -88,17 +88,19 @@ public class NewOrderController implements Initializable, windows {
 
     // set the Manage Client window
     public void goToManageClient(ActionEvent actionEvent) {
+        System.out.println("goToManageClient() is called");
         myController.setWindow(Main.windowId3);
     }
 
     // set the Check Order
     public void goToCheckOrder(ActionEvent actionEvent) {
-
+        System.out.println("goToCheckOrder() is called");
         myController.setWindow(Main.windowId4);
     }
 
     //creates an object which is a new row in the table view
     public LaundryItem getLaundryItem(){
+        System.out.println("getLaundryItem() is called");
         return new LaundryItem(dbMethods.getDescription(),dbMethods.getLaundryItemID(),dbMethods.getItemStatus(),dbMethods.getClothingTypeName());
     }
 
@@ -106,7 +108,7 @@ public class NewOrderController implements Initializable, windows {
     //This method displays the client's name with the given email , if an account exists for that email.
     // Sets email variable for clientAccount object for the given value
     public void createOrder() {
-
+        System.out.println("createOrder() is called");
         dbMethods.selectClient(clientEmail_textfield.getText());
 
 
@@ -128,6 +130,7 @@ public class NewOrderController implements Initializable, windows {
 
     //Adds a laundry item for a given email's latest order, if the order id textfield is filled then it adds the laundry item to that order
     public void addItem() {
+        System.out.println("addItem() is called");
         recentOrderID = dbMethods.selectMostRecentOrderIDForGivenEmail(clientAccount.getEmail());
         dbMethods.insertLaundryItem(itemDescription_textfield.getText(),recentOrderID,clothingType_choiceBox.getValue());
 
@@ -139,6 +142,7 @@ public class NewOrderController implements Initializable, windows {
 
     //this is the button which initiates the createOrder() method
     public void go() {
+        System.out.println("go() is called");
         createOrder();
         tableView.getItems().clear();
 
@@ -147,12 +151,12 @@ public class NewOrderController implements Initializable, windows {
     //this method creates an invoice.txt file with the client details and the total and the shop which it was created in.
     //the file name is the orderID
     public void finishOrder() {
+        System.out.println("finishOrder() is called");
         invoice.writeFile(dbMethods.selectTotal(recentOrderID),recentOrderID,dbMethods.getName(),
                 dbMethods.selectShop(recentOrderID),ClientAccount.email);
         tableView.getItems().clear();
         itemDescription_textfield.setText("");
         clothingType_choiceBox.setValue(ClothingType.pants);
         clientName_label.setText("");
-
     }
 }

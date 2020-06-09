@@ -92,6 +92,7 @@ public class CheckOrderController implements Initializable, windows {
     }
 
     public void go() {
+        System.out.println("go() is called");
         order_tableview.getItems().clear();
         itemID = itemID_textfield.getText();
         dbMethods.selectLaundryItems(Integer.parseInt(itemID));
@@ -103,13 +104,10 @@ public class CheckOrderController implements Initializable, windows {
         clothingType_label.setText("Clothing type: " + dbMethods.getClothingTypeName());
         itemStatus_label.setText(dbMethods.getItemStatus());
         orderStatus_label.setText(dbMethods.getOrderStatus());
-
-
-
-
     }
 
     public void setStatuses(){
+        System.out.println("setStatuses() is called");
         itemID = itemID_textfield.getText();
         dbMethods.updateOrderStatus(Integer.parseInt(itemID), orderStatus_choiceBox.getValue());
         dbMethods.updateItemStatus(Integer.parseInt(itemID), itemStatus_choiceBox.getValue());

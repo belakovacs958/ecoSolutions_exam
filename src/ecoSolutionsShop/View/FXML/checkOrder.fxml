@@ -11,8 +11,8 @@
 
 <AnchorPane fx:id="pane" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../CSS/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecoSolutionsShop.Controller.CheckOrderController">
     <children>
-        <ChoiceBox fx:id="orderStatus_choiceBox" layoutX="1478.0" layoutY="496.0" prefHeight="40.0" prefWidth="370.0" />
-        <TableView fx:id="order_tableview" layoutX="104.0" layoutY="495.0" prefHeight="563.0" prefWidth="760.0" stylesheets="@../CSS/tableView.css">
+        <ChoiceBox fx:id="orderStatus_choiceBox" focusTraversable="false" layoutX="1478.0" layoutY="496.0" prefHeight="40.0" prefWidth="370.0" />
+        <TableView fx:id="order_tableview" focusTraversable="false" layoutX="104.0" layoutY="495.0" prefHeight="563.0" prefWidth="760.0" stylesheets="@../CSS/tableView.css">
             <columns>
                 <TableColumn fx:id="description_column" prefWidth="190.0" text="Description" />
                 <TableColumn fx:id="itemStatus_column" prefWidth="190.0" text="Item status" />
@@ -25,7 +25,7 @@
                 <Font size="20.0" />
             </font>
         </Button>
-        <TextField fx:id="itemID_textfield" layoutX="104.0" layoutY="223.0" prefHeight="40.0" prefWidth="370.0" promptText="Enter item ID">
+        <TextField fx:id="itemID_textfield" focusTraversable="false" layoutX="104.0" layoutY="223.0" prefHeight="40.0" prefWidth="370.0" promptText="Enter item ID">
             <font>
                 <Font size="20.0" />
             </font>
@@ -47,7 +47,7 @@
                 <Font size="40.0" />
             </font>
         </Button>
-        <ChoiceBox fx:id="itemStatus_choiceBox" layoutX="1041.0" layoutY="496.0" prefHeight="40.0" prefWidth="370.0" />
+        <ChoiceBox fx:id="itemStatus_choiceBox" focusTraversable="false" layoutX="1041.0" layoutY="496.0" prefHeight="40.0" prefWidth="370.0" />
         <Label layoutX="104.0" layoutY="276.0" text="Item details:">
             <font>
                 <Font size="20.0" />
