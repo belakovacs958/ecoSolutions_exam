@@ -71,17 +71,8 @@ public class NewOrderController implements Initializable, windows {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //these are the values in the dropdown menu
-        clothingType_choiceBox.getItems().addAll(ClothingType.pants,ClothingType.dress,ClothingType.t_shirt,ClothingType.shirt,
-                ClothingType.skirt,ClothingType.chef_suit,ClothingType.police_uniform,ClothingType.suit,ClothingType.jumpsuit,
-                ClothingType.jacket,ClothingType.vest,ClothingType.blazer,ClothingType.coat);
-        clothingType_choiceBox.setValue(ClothingType.pants);
-
-        //these are the columns in the table view
-        description_column.setCellValueFactory(new PropertyValueFactory<LaundryItem, String>("description"));
-        itemStatus_column.setCellValueFactory(new PropertyValueFactory<LaundryItem, String>("itemStatus"));
-        clothingType_column.setCellValueFactory(new PropertyValueFactory<LaundryItem, String>("clothingTypeName"));
-        itemID_column.setCellValueFactory(new PropertyValueFactory<LaundryItem, Integer>("laundryItemID"));
+       fillChoiceBox();
+       createTableView();
     }
 
     ///////////////////////////////////////methods////////////////////////////////////
@@ -111,7 +102,6 @@ public class NewOrderController implements Initializable, windows {
         System.out.println("createOrder() is called");
         dbMethods.selectClient(clientEmail_textfield.getText());
 
-
         if (dbMethods.isEmailRegistered(clientEmail_textfield.getText())==true){
             clientName_label.setText("The order is created to " + dbMethods.getName()+ "'s account! Put in laundry items");
             dbMethods.insertOrder(clientEmail_textfield.getText(),shopAccount.getShopID());
@@ -123,7 +113,6 @@ public class NewOrderController implements Initializable, windows {
         else{
             clientName_label.setText("There is no account registered for the email: " + clientEmail_textfield.getText());
             clientEmail_textfield.setText("");
-
         }
     }
 
@@ -169,6 +158,24 @@ public class NewOrderController implements Initializable, windows {
     public void createInvoice(){
         System.out.println("createInvoice() is called");
         invoice.writeFile(dbMethods.selectTotal(recentOrderID),recentOrderID,dbMethods.getName(), dbMethods.selectShop(recentOrderID),ClientAccount.email);
+
+    }
+
+    public void createTableView(){
+        System.out.println("createTableView() is called");
+        //these are the columns in the table view
+        description_column.setCellValueFactory(new PropertyValueFactory<LaundryItem, String>("description"));
+        itemStatus_column.setCellValueFactory(new PropertyValueFactory<LaundryItem, String>("itemStatus"));
+        clothingType_column.setCellValueFactory(new PropertyValueFactory<LaundryItem, String>("clothingTypeName"));
+        itemID_column.setCellValueFactory(new PropertyValueFactory<LaundryItem, Integer>("laundryItemID"));
+    }
+    public void fillChoiceBox(){
+        System.out.println("fillChoiceBox() is called");
+        //these are the values in the dropdown menu
+        clothingType_choiceBox.getItems().addAll(ClothingType.pants,ClothingType.dress,ClothingType.t_shirt,ClothingType.shirt,
+                ClothingType.skirt,ClothingType.chef_suit,ClothingType.police_uniform,ClothingType.suit,ClothingType.jumpsuit,
+                ClothingType.jacket,ClothingType.vest,ClothingType.blazer,ClothingType.coat);
+        clothingType_choiceBox.setValue(ClothingType.pants);
 
     }
 }

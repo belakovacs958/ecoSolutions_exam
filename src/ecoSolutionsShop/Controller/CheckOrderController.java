@@ -57,17 +57,9 @@ public class CheckOrderController implements Initializable, windows {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //this fills the choice boxes
-        itemStatus_choiceBox.getItems().addAll(Status.dirtyInShop,Status.cleanInShop,Status.completed);
-        itemStatus_choiceBox.setValue(Status.dirtyInShop);
-        orderStatus_choiceBox.getItems().addAll(Status.dirtyInShop,Status.cleanInShop,Status.completed);
-        orderStatus_choiceBox.setValue(Status.dirtyInShop);
+        fillChoiceBoxes();
+        createTableView();
 
-        //these are the columns in the table view
-        description_column.setCellValueFactory(new PropertyValueFactory<LaundryItem, String>("description"));
-        itemStatus_column.setCellValueFactory(new PropertyValueFactory<LaundryItem, String>("itemStatus"));
-        clothingType_column.setCellValueFactory(new PropertyValueFactory<LaundryItem, String>("clothingTypeName"));
-        itemID_column.setCellValueFactory(new PropertyValueFactory<LaundryItem, Integer>("laundryItemID"));
 
     }
 
@@ -81,24 +73,7 @@ public class CheckOrderController implements Initializable, windows {
         myController.setWindow(Main.windowId2);
     }
 
-    public void displayItemDetails() {
-        System.out.println("displayItemDetails() is called");
-        description_label.setText("Description: " + dbMethods.getDescription());
-        itemID_label.setText("Item ID: " + itemID_textfield.getText());
-        clothingType_label.setText("Clothing type: " + dbMethods.getClothingTypeName());
-        itemStatus_label.setText(dbMethods.getItemStatus());
 
-    }
-
-    public void displayLaundryItems() {
-        System.out.println("displayLaundryItems() is called");
-        order_tableview.setItems(laundryItems);
-    }
-
-    public void displayOrderStatus() {
-        System.out.println("displayOrderStatus() is called");
-        orderStatus_label.setText(dbMethods.getOrderStatus());
-    }
 
     public void go() {
         System.out.println("go() is called");
@@ -118,5 +93,38 @@ public class CheckOrderController implements Initializable, windows {
         dbMethods.updateOrderStatus(Integer.parseInt(itemID), orderStatus_choiceBox.getValue());
         dbMethods.updateItemStatus(Integer.parseInt(itemID), itemStatus_choiceBox.getValue());
 
+    }
+    public void displayItemDetails() {
+        System.out.println("displayItemDetails() is called");
+        description_label.setText("Description: " + dbMethods.getDescription());
+        itemID_label.setText("Item ID: " + itemID_textfield.getText());
+        clothingType_label.setText("Clothing type: " + dbMethods.getClothingTypeName());
+        itemStatus_label.setText(dbMethods.getItemStatus());
+
+    }
+
+    public void displayLaundryItems() {
+        System.out.println("displayLaundryItems() is called");
+        order_tableview.setItems(laundryItems);
+    }
+
+    public void displayOrderStatus() {
+        System.out.println("displayOrderStatus() is called");
+        orderStatus_label.setText(dbMethods.getOrderStatus());
+    }
+    public void createTableView(){
+        //these are the columns in the table view
+        description_column.setCellValueFactory(new PropertyValueFactory<LaundryItem, String>("description"));
+        itemStatus_column.setCellValueFactory(new PropertyValueFactory<LaundryItem, String>("itemStatus"));
+        clothingType_column.setCellValueFactory(new PropertyValueFactory<LaundryItem, String>("clothingTypeName"));
+        itemID_column.setCellValueFactory(new PropertyValueFactory<LaundryItem, Integer>("laundryItemID"));
+    }
+
+    public void fillChoiceBoxes(){
+        //this fills the choice boxes
+        itemStatus_choiceBox.getItems().addAll(Status.dirtyInShop,Status.cleanInShop,Status.completed);
+        itemStatus_choiceBox.setValue(Status.dirtyInShop);
+        orderStatus_choiceBox.getItems().addAll(Status.dirtyInShop,Status.cleanInShop,Status.completed);
+        orderStatus_choiceBox.setValue(Status.dirtyInShop);
     }
 }
