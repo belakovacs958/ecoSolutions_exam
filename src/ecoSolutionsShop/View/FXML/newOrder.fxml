@@ -41,7 +41,7 @@
             <Font size="20.0" />
          </font>
       </Button>
-      <Button fx:id="finishOrder_btn" layoutX="104.0" layoutY="1010.0" mnemonicParsing="false" onAction="#finishOrder" prefHeight="40.0" prefWidth="145.0" stylesheets="@../CSS/button.css" text="Finish order" textFill="WHITE">
+      <Button fx:id="finishOrder_btn" layoutX="719.0" layoutY="200.0" mnemonicParsing="false" onAction="#finishOrder" prefHeight="40.0" prefWidth="145.0" stylesheets="@../CSS/button.css" text="Finish order" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
@@ -60,7 +60,7 @@
          </font>
       </TextField>
       <ChoiceBox fx:id="clothingType_choiceBox" layoutX="1351.0" layoutY="455.0" prefHeight="40.0" prefWidth="370.0" />
-      <Button fx:id="addItem_btn" layoutX="1541.0" layoutY="1010.0" mnemonicParsing="false" onAction="#addItem" prefHeight="40.0" prefWidth="180.0" stylesheets="@../CSS/button.css" text="Add item" textFill="WHITE">
+      <Button fx:id="addItem_btn" layoutX="1351.0" layoutY="591.0" mnemonicParsing="false" onAction="#addItem" prefHeight="40.0" prefWidth="180.0" stylesheets="@../CSS/button.css" text="Add item" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>

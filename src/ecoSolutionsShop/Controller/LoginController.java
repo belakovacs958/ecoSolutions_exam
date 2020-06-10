@@ -1,11 +1,10 @@
 package ecoSolutionsShop.Controller;
 
-import ecoSolutionsShop.Account.ShopAccount;
+import ecoSolutionsShop.Model.ShopAccount;
 import ecoSolutionsShop.Data.DBMethods;
 import ecoSolutionsShop.Main;
 import ecoSolutionsShop.View.UIControl.Controller;
 import ecoSolutionsShop.View.UIControl.windows;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;

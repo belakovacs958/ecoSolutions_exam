@@ -82,13 +82,22 @@ public class CheckOrderController implements Initializable, windows {
     }
 
     public void displayItemDetails() {
+        System.out.println("displayItemDetails() is called");
+        description_label.setText("Description: " + dbMethods.getDescription());
+        itemID_label.setText("Item ID: " + itemID_textfield.getText());
+        clothingType_label.setText("Clothing type: " + dbMethods.getClothingTypeName());
+        itemStatus_label.setText(dbMethods.getItemStatus());
+
     }
 
     public void displayLaundryItems() {
-
+        System.out.println("displayLaundryItems() is called");
+        order_tableview.setItems(laundryItems);
     }
 
     public void displayOrderStatus() {
+        System.out.println("displayOrderStatus() is called");
+        orderStatus_label.setText(dbMethods.getOrderStatus());
     }
 
     public void go() {
@@ -96,14 +105,11 @@ public class CheckOrderController implements Initializable, windows {
         order_tableview.getItems().clear();
         itemID = itemID_textfield.getText();
         dbMethods.selectLaundryItems(Integer.parseInt(itemID));
-        order_tableview.setItems(laundryItems);
         dbMethods.selectLaundryItemDetails(Integer.parseInt(itemID));
         dbMethods.selectOrderStatus(Integer.parseInt(itemID));
-        description_label.setText("Description: " + dbMethods.getDescription());
-        itemID_label.setText("Item ID: " + itemID_textfield.getText());
-        clothingType_label.setText("Clothing type: " + dbMethods.getClothingTypeName());
-        itemStatus_label.setText(dbMethods.getItemStatus());
-        orderStatus_label.setText(dbMethods.getOrderStatus());
+        displayLaundryItems();
+        displayItemDetails();
+        displayOrderStatus();
     }
 
     public void setStatuses(){

@@ -1,7 +1,7 @@
 package ecoSolutionsShop.Controller;
 
-import ecoSolutionsShop.Account.ClientAccount;
-import ecoSolutionsShop.Account.ShopAccount;
+import ecoSolutionsShop.Model.ClientAccount;
+import ecoSolutionsShop.Model.ShopAccount;
 import ecoSolutionsShop.Data.DBMethods;
 import ecoSolutionsShop.Main;
 import ecoSolutionsShop.Model.ClothingType;
@@ -133,11 +133,9 @@ public class NewOrderController implements Initializable, windows {
         System.out.println("addItem() is called");
         recentOrderID = dbMethods.selectMostRecentOrderIDForGivenEmail(clientAccount.getEmail());
         dbMethods.insertLaundryItem(itemDescription_textfield.getText(),recentOrderID,clothingType_choiceBox.getValue());
-
         dbMethods.selectLaundryItem(recentOrderID);
-        laundryItems.add(getLaundryItem());
-        tableView.setItems(laundryItems);
         qrCode.generateQRCode(dbMethods.getLaundryItemID());
+        displayLaundryItems();
     }
 
     //this is the button which initiates the createOrder() method
@@ -152,11 +150,25 @@ public class NewOrderController implements Initializable, windows {
     //the file name is the orderID
     public void finishOrder() {
         System.out.println("finishOrder() is called");
-        invoice.writeFile(dbMethods.selectTotal(recentOrderID),recentOrderID,dbMethods.getName(),
-                dbMethods.selectShop(recentOrderID),ClientAccount.email);
+        createInvoice();
+        clearLabels();
+    }
+
+    public void displayLaundryItems(){
+        System.out.println("displayLaundryItems() is called");
+        laundryItems.add(getLaundryItem());
+        tableView.setItems(laundryItems);
+    }
+    public void clearLabels(){
+        System.out.println("clearLabels() is called");
         tableView.getItems().clear();
         itemDescription_textfield.setText("");
         clothingType_choiceBox.setValue(ClothingType.pants);
         clientName_label.setText("");
+    }
+    public void createInvoice(){
+        System.out.println("createInvoice() is called");
+        invoice.writeFile(dbMethods.selectTotal(recentOrderID),recentOrderID,dbMethods.getName(), dbMethods.selectShop(recentOrderID),ClientAccount.email);
+
     }
 }
