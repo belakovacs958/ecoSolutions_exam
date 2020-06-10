@@ -1,4 +1,4 @@
-package ecoSolutionsShop.Account;
+package ecoSolutionsShop.Model;
 
 
 public class ShopAccount {
