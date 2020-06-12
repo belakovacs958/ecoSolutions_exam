@@ -168,7 +168,7 @@ public class DBMethods {
      * returns the latest order ID for a given client
      */
     //select the latest order for a given email address
-    public int selectMostRecentOrderIDForGivenEmail(String email) {
+    public int selectMostRecentOrderID(String email) {
         int recentOrderID = 0;
         try {
             PreparedStatement query = DBConnection.getConnect().prepareStatement("select top 1 fldOrderID from tblOrder where fldEmail =? order by fldOrderID desc");
@@ -180,6 +180,7 @@ public class DBMethods {
             }
         }
         catch (SQLException e) {
+
             e.printStackTrace();
         }
         return recentOrderID;
