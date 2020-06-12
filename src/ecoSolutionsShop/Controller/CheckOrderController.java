@@ -122,9 +122,9 @@ public class CheckOrderController implements Initializable, windows {
 
     public void fillChoiceBoxes(){
         //this fills the choice boxes
-        itemStatus_choiceBox.getItems().addAll(Status.dirtyInShop,Status.cleanInShop,Status.completed);
+        itemStatus_choiceBox.getItems().addAll(Status.dirtyInShop,Status.inTransportToCenter,Status.cleanInShop,Status.completed);
         itemStatus_choiceBox.setValue(Status.dirtyInShop);
-        orderStatus_choiceBox.getItems().addAll(Status.dirtyInShop,Status.cleanInShop,Status.completed);
+        orderStatus_choiceBox.getItems().addAll(Status.dirtyInShop,Status.inTransportToCenter,Status.cleanInShop,Status.completed);
         orderStatus_choiceBox.setValue(Status.dirtyInShop);
     }
 }
