@@ -36,7 +36,7 @@
             <Font size="20.0" />
          </font>
       </TextField>
-      <Button fx:id="go_btn" layoutX="526.0" layoutY="200.0" mnemonicParsing="false" onAction="#go" prefHeight="40.0" prefWidth="100.0" stylesheets="@../CSS/button.css" text="CREATE">
+      <Button fx:id="go_btn" layoutX="526.0" layoutY="200.0" mnemonicParsing="false" onAction="#create" prefHeight="40.0" prefWidth="100.0" stylesheets="@../CSS/button.css" text="CREATE">
          <font>
             <Font size="20.0" />
          </font>

@@ -120,7 +120,7 @@ public class NewOrderController implements Initializable, windows {
     //Adds a laundry item for a given email's latest order, if the order id textfield is filled then it adds the laundry item to that order
     public void addItem() {
         System.out.println("addItem() is called");
-        recentOrderID = dbMethods.selectMostRecentOrderIDForGivenEmail(clientAccount.getEmail());
+        recentOrderID = dbMethods.selectMostRecentOrderID(clientAccount.getEmail());
         dbMethods.insertLaundryItem(itemDescription_textfield.getText(),recentOrderID,clothingType_choiceBox.getValue());
         dbMethods.selectLaundryItem(recentOrderID);
         qrCode.generateQRCode(dbMethods.getLaundryItemID());
@@ -128,8 +128,8 @@ public class NewOrderController implements Initializable, windows {
     }
 
     //this is the button which initiates the createOrder() method
-    public void go() {
-        System.out.println("go() is called");
+    public void create() {
+        System.out.println("create() is called");
         createOrder();
         tableView.getItems().clear();
 
