@@ -231,6 +231,9 @@ public class DBMethods {
         }
     }
 
+
+
+
     /**
      *
      * @param shopID
@@ -238,6 +241,7 @@ public class DBMethods {
      * @return
      * does the password verification by checking if the given parameters are existing together in the database
      */
+
     //selects password from tblShop for a shopIS which is entered into the login form
     public boolean selectCredentials(String shopID, String password) {
         try {
