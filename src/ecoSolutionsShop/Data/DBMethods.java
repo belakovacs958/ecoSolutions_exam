@@ -140,9 +140,11 @@ public class DBMethods {
     }
 
 
-
+    /**
+     * @param itemID
+     * this method creates a new LaundryItem object for each row in the result set
+     */
     public void selectLaundryItems(int itemID){
-
         try {
             PreparedStatement query = DBConnection.getConnect().prepareStatement("SELECT * \n" +
                     "  FROM tblLaundryItem \n" +
@@ -158,7 +160,6 @@ public class DBMethods {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
 
     /**
