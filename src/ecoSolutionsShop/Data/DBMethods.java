@@ -33,7 +33,7 @@ public class DBMethods {
         try {
             PreparedStatement query = DBConnection.getConnect().prepareStatement("SELECT fldName\n" +
                     "FROM tblOrder\n" +
-                    "INNER JOIN tblShop ON tblShop.fldShopID = tblOrder.fdlShopID\n" +
+                    "INNER JOIN tblShop ON tblShop.fldShopID = tblOrder.fldShopID\n" +
                     "where fldOrderID = ? ");
             query.setInt(1, orderID);
             ResultSet resultSet = query.executeQuery();
@@ -57,7 +57,7 @@ public class DBMethods {
     //creates an order for a given email and attaches the shopID where the order ID was created
     public void insertOrder(String email, String shopID){
         try {
-            PreparedStatement query = DBConnection.getConnect().prepareStatement("INSERT INTO tblOrder (fldEmail, fdlShopID, fldOrderStatus) " +    // !!!fdlShopID has a typo
+            PreparedStatement query = DBConnection.getConnect().prepareStatement("INSERT INTO tblOrder (fldEmail, fldShopID, fldOrderStatus) " +    // !!!fdlShopID has a typo
                     "VALUES (?,?,?);");
             query.setString(1, email);
             query.setString(2, shopID);
