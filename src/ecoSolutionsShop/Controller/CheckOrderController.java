@@ -87,6 +87,9 @@ public class CheckOrderController implements Initializable, windows {
         displayOrderStatus();
     }
 
+    /**
+     * part of UC25
+     */
     public void setStatuses(){
         System.out.println("setStatuses() is called");
         itemID = itemID_textfield.getText();

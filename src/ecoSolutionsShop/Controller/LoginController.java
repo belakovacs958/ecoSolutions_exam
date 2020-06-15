@@ -44,6 +44,9 @@ public class LoginController implements Initializable, windows {
 
     ///////////////////////////////////////methods////////////////////////////////////
 
+    /**
+     * part of UC6
+     */
     // set the New Order window if login credentials are correct
     public void login() {
         System.out.println("public void login() is called");

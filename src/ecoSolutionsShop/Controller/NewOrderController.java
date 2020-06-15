@@ -96,6 +96,9 @@ public class NewOrderController implements Initializable, windows {
     }
 
 
+    /**
+     *  part of UC1 and UC26
+     */
     //This method displays the client's name with the given email , if an account exists for that email.
     // Sets email variable for clientAccount object for the given value
     public void createOrder() {
@@ -116,7 +119,9 @@ public class NewOrderController implements Initializable, windows {
         }
     }
 
-
+    /**
+     * part of UC26
+     */
     //Adds a laundry item for a given email's latest order, if the order id textfield is filled then it adds the laundry item to that order
     public void addItem() {
         System.out.println("addItem() is called");
@@ -127,6 +132,9 @@ public class NewOrderController implements Initializable, windows {
         displayLaundryItems();
     }
 
+    /**
+     * part of UC1
+     */
     //this is the button which initiates the createOrder() method
     public void create() {
         System.out.println("create() is called");
@@ -135,6 +143,9 @@ public class NewOrderController implements Initializable, windows {
 
     }
 
+    /**
+     * part of UC19
+     */
     //this method creates an invoice.txt file with the client details and the total and the shop which it was created in.
     //the file name is the orderID
     public void finishOrder() {
@@ -143,6 +154,9 @@ public class NewOrderController implements Initializable, windows {
         clearLabels();
     }
 
+    /**
+     * part of UC15
+     */
     public void displayLaundryItems(){
         System.out.println("displayLaundryItems() is called");
         laundryItems.add(getLaundryItem());
@@ -155,6 +169,10 @@ public class NewOrderController implements Initializable, windows {
         clothingType_choiceBox.setValue(ClothingType.pants);
         clientName_label.setText("");
     }
+
+    /**
+     * part of UC14
+     */
     public void createInvoice(){
         System.out.println("createInvoice() is called");
         invoice.writeFile(dbMethods.selectTotal(recentOrderID),recentOrderID,dbMethods.getName(), dbMethods.selectShop(recentOrderID),ClientAccount.email);

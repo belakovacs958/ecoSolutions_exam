@@ -49,7 +49,7 @@ public class DBMethods {
     }
 
     /**
-     *
+     *part of UC1
      * @param email
      * @param shopID
      * inserts into database: email, shopID, order status
@@ -95,7 +95,7 @@ public class DBMethods {
     }
 
     /**
-     *
+     *part of UC26
      * @param description
      * @param orderID
      * @param clothingTypeName
@@ -144,6 +144,7 @@ public class DBMethods {
      * @param itemID
      * this method creates a new LaundryItem object for each row in the result set
      */
+    //this method is used to fill an observable list
     public void selectLaundryItems(int itemID){
         try {
             PreparedStatement query = DBConnection.getConnect().prepareStatement("SELECT * \n" +
@@ -210,7 +211,7 @@ public class DBMethods {
     }
 
     /**
-     *
+     *part of UC18
      * @param fullName
      * @param email
      * @param phoneNo
@@ -233,7 +234,7 @@ public class DBMethods {
     }
 
     /**
-     *
+     *Part of UC 24
      * @param shopID
      * @param password
      * @return
