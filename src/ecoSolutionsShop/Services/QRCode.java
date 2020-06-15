@@ -6,7 +6,10 @@ public class QRCode {
 
     private Formatter file;
 
-
+    /**
+     * part of  UC13
+     * @param laundryItemID
+     */
     public void generateQRCode(int laundryItemID){
         try{
             file = new Formatter("C:/Users/KendeSzabo/IdeaProjects/ecoSolutions_exam/src/ecoSolutionsShop/Services/QRCodes/" + laundryItemID + ".txt");

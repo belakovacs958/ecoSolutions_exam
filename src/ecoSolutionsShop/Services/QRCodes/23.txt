@@ -1,0 +1,1 @@
+the laundry item ID is the number which is coded into the QR code. The ID is:   23

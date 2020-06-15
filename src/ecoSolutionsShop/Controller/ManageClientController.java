@@ -55,6 +55,9 @@ public class ManageClientController implements Initializable, windows {
         myController.setWindow(Main.windowId2);
     }
 
+    /**
+     * part of UC16
+     */
     //displays information about the client with the given email address
     public void displayClientDetails() {
         System.out.println("displayClientDetails() is called");
@@ -63,6 +66,11 @@ public class ManageClientController implements Initializable, windows {
         clientPhone_label.setText("Client phone number: " + dbMethods.getPhoneNo());
 
     }
+
+    /**
+     * part of UC18
+     *
+     * */
     //registers a client if it is not already registered
     public void registerClient() {
         System.out.println("registerClient() is called");

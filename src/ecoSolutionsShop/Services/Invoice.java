@@ -11,6 +11,14 @@ public class Invoice {
 
     ///////////////////////////////////////methods////////////////////////////////////
 
+    /**
+     * part of UC14
+     * @param sum
+     * @param orderID
+     * @param name
+     * @param shopName
+     * @param email
+     */
     //this method creates a file gives it a name, write in some data about the client and the shop and the order total
     public void writeFile(int sum, int orderID, String name, String shopName, String email ){
         try{
